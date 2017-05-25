@@ -1,0 +1,100 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package byui.cit260.theHunt.control;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+/**
+ *
+ * @author Dragon
+ */
+public class InventoryControlTest {
+    
+    public InventoryControlTest() {
+    }
+
+    /**
+     * Test of calcAmmo method, of class InventoryControl.
+     */
+    @Test
+    public void testCalcAmmo() {
+        System.out.println("calcAmmo");
+        
+        /* Test case #1*/
+        System.out.println("/tTest Case #1");
+        int start = 10;
+        int used = -4;
+        int pickUp = 5;
+        InventoryControl instance = new InventoryControl();
+        int expResult = 11;
+        int result = instance.calcAmmo(start, used, pickUp);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+        
+        /* Test case #2*/
+        System.out.println("/tTest Case #2");
+        start = -1;
+        used = -4;
+        pickUp = 5;
+        
+        expResult = -1;
+        result = instance.calcAmmo(start, used, pickUp);
+        assertEquals(expResult, result);
+        
+        /* Test case #3*/
+        System.out.println("/tTest Case #3");
+        start = 0;
+        used = -4;
+        pickUp = -1;
+        
+        expResult = -1;
+        result = instance.calcAmmo(start, used, pickUp);
+        assertEquals(expResult, result);
+        
+        /* Test case #4*/
+        System.out.println("/tTest Case #4");
+        start = 10;
+        used = 4;
+        pickUp = 0;
+        
+        expResult = -1;
+        result = instance.calcAmmo(start, used, pickUp);
+        assertEquals(expResult, result);
+        
+        /* Test case #5*/
+        System.out.println("/tTest Case #5");
+        start = 0;
+        used = 0;
+        pickUp = 0;
+        
+        expResult = 0;
+        result = instance.calcAmmo(start, used, pickUp);
+        assertEquals(expResult, result);
+        
+        /* Test case #6*/
+        System.out.println("/tTest Case #6");
+        start = 10;
+        used = 0;
+        pickUp = 10;
+        
+        expResult = 20;
+        result = instance.calcAmmo(start, used, pickUp);
+        assertEquals(expResult, result);
+        
+        /* Test case #7*/
+        System.out.println("/tTest Case #7");
+        start = 1;
+        used = -1;
+        pickUp = 1;
+        
+        expResult = 1;
+        result = instance.calcAmmo(start, used, pickUp);
+        assertEquals(expResult, result);
+    }
+    
+}
