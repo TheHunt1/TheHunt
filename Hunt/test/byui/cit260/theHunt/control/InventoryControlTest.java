@@ -5,8 +5,12 @@
  */
 package byui.cit260.theHunt.control;
 
+import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Before;
+import org.junit.BeforeClass;
 
 /**
  *
@@ -15,6 +19,22 @@ import static org.junit.Assert.*;
 public class InventoryControlTest {
     
     public InventoryControlTest() {
+    }
+
+    @BeforeClass
+    public static void setUpClass() throws Exception {
+    }
+
+    @AfterClass
+    public static void tearDownClass() throws Exception {
+    }
+
+    @Before
+    public void setUp() throws Exception {
+    }
+
+    @After
+    public void tearDown() throws Exception {
     }
 
     /**
@@ -95,6 +115,71 @@ public class InventoryControlTest {
         expResult = 1;
         result = instance.calcAmmo(start, used, pickUp);
         assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of calcEnergyUsed method, of class InventoryControl.
+     */
+    @Test
+    public void testCalcEnergyUsed() {
+        System.out.println("calcEnergyUsed");
+        
+        System.out.println("/tTest Case #1");
+        int start = 94;
+        int used = 23;
+        InventoryControl instance = new InventoryControl();
+        int expResult = 71;
+        int result = instance.calcEnergyUsed(start, used);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+       
+        System.out.println("/tTest Case #2");
+        start = 32;
+        used = 40;
+      
+        expResult = 0;
+        result = instance.calcEnergyUsed(start, used);
+        assertEquals(expResult, result); 
+        
+        System.out.println("/tTest Case #3");
+        start = 92;
+        used = -14;
+      
+        expResult = -1;
+        result = instance.calcEnergyUsed(start, used);
+        assertEquals(expResult, result); 
+        
+        System.out.println("/tTest Case #4");
+        start = -3;
+        used = 5;
+      
+        expResult = -1;
+        result = instance.calcEnergyUsed(start, used);
+        assertEquals(expResult, result); 
+        
+        System.out.println("/tTest Case #5");
+        start = 0;
+        used = 0;
+      
+        expResult = 0;
+        result = instance.calcEnergyUsed(start, used);
+        assertEquals(expResult, result); 
+        
+        System.out.println("/tTest Case #6");
+        start = 100;
+        used = 0;
+      
+        expResult = 100;
+        result = instance.calcEnergyUsed(start, used);
+        assertEquals(expResult, result); 
+        
+        System.out.println("/tTest Case #7");
+        start = 75;
+        used = 74;
+      
+        expResult = 1;
+        result = instance.calcEnergyUsed(start, used);
+        assertEquals(expResult, result); 
     }
     
 }

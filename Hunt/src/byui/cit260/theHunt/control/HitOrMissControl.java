@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -34,3 +35,19 @@ return hitOrMiss;
     }
     
 }
+=======
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package byui.cit260.theHunt.control;
+
+/**
+ *
+ * @author MW
+ */
+public class HitOrMissControl {
+    
+}
+>>>>>>> origin/master

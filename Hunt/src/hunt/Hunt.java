@@ -6,6 +6,7 @@
 package hunt;
 import byui.cit260.theHunt.model.Actor;
 import byui.cit260.theHunt.model.AmmoStore;
+import byui.cit260.theHunt.model.Animal;
 import byui.cit260.theHunt.model.Game;
 import byui.cit260.theHunt.model.HitOrMissScene;
 import byui.cit260.theHunt.model.HuntScene;
@@ -107,9 +108,16 @@ public class Hunt {
         animal.setName("Yoggie");
         animal.setAnimal("Bear");
         
-        String prey = animal.toString();
-        System.out.println(prey);
+        String actor = animal.toString();
+        System.out.println(actor);
         
+        Animal prey = new Animal();
+        prey.setAmmoNeeded("30-30");
+        prey.setPoints(10);
+        prey.setType("Mule Deer");
+        
+        String huntedPrey = prey.toString();
+        System.out.println(huntedPrey);
         
     }
     

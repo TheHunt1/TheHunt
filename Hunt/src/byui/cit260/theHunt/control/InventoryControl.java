@@ -29,4 +29,24 @@ public class InventoryControl {
     return available;
 
    }
+   
+   public int calcEnergyUsed(int start, int used) {
+       if (start < 0) {
+            return -1;
+       }
+       if (used < 0) {
+            return -1;
+       }
+       
+       int energyLevel = start - used;
+       
+       if (energyLevel < 0) {
+            return 0;
+       }
+       if (energyLevel > 100) {
+            return 100;
+       }
+               
+    return energyLevel;
+   }
 }
