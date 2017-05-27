@@ -4,10 +4,14 @@
  * and open the template in the editor.
  */
 package hunt;
+import byui.cit260.theHunt.model.Actor;
 import byui.cit260.theHunt.model.AmmoStore;
+import byui.cit260.theHunt.model.Game;
 import byui.cit260.theHunt.model.HitOrMissScene;
 import byui.cit260.theHunt.model.HuntScene;
 import byui.cit260.theHunt.model.Inventory;
+import byui.cit260.theHunt.model.Location;
+import byui.cit260.theHunt.model.Map;
 import byui.cit260.theHunt.model.Player;
 import byui.cit260.theHunt.model.PlayerStatus;
 import byui.cit260.theHunt.model.WeaponStore;
@@ -79,6 +83,34 @@ public class Hunt {
         
         String purchase = weapon.toString();
         System.out.println(purchase);
+        
+        Game openGame = new Game();
+        openGame.setAddPlayer("M Kekauoha");
+        
+        String playerName = openGame.toString();
+        System.out.println(playerName);
+        
+        Map mapLocation = new Map();
+        mapLocation.setAnimalChoice("Deer");
+        mapLocation.setLocationDesciption("Mountain Range");
+        
+        String huntLocation = mapLocation.toString();
+        System.out.println(huntLocation);
+        
+        Location field = new Location();
+        field.setVisited("Yes");
+        
+        String fieldLocation = field.toString();
+        System.out.println(fieldLocation);
+        
+        Actor animal = new Actor();
+        animal.setName("Yoggie");
+        animal.setAnimal("Bear");
+        
+        String prey = animal.toString();
+        System.out.println(prey);
+        
+        
     }
     
 }
