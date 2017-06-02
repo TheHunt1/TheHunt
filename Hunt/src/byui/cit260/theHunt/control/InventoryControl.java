@@ -49,4 +49,15 @@ public class InventoryControl {
                
     return energyLevel;
    }
+	public double purchaseWeapon(double cash, boolean available, double price){
+	   if(cash < price){
+		   return -1;
+	   }else if(cash == 0){
+		   return -1;
+	   }else if(available == false){
+		   return -1;
+	   }else{
+		   cash = cash - price;
+		   return cash;
+	   }
 }

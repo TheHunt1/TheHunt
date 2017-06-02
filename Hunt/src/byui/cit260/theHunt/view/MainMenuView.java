@@ -5,6 +5,9 @@
  */
 package byui.cit260.theHunt.view;
 
+import byui.cit260.theHunt.control.GameControl;
+import hunt.Hunt;
+
 /**
  *
  * @author Dragon
@@ -25,7 +28,63 @@ public class MainMenuView {
                 + "\n-------------------------------";
     }
     void displayMainMenuView() {
-        System.out.println("\n Called displayMainMenuView funtion");
+        boolean done = false; //set flag to not done
+       do {
+           //prompt for and get player's name
+           String menuOption = this.getmenuOption();
+           if(menuOption.toUpperCase().equals("Q"))
+               return;
+           
+           done = this.doAction(menuOption);
+       }
+       while (!done);
+    }
+
+    private String getmenuOption() {
+        System.out.println("\n GetMenuOption called");
+        return "N";
+    }
+
+    private boolean doAction(String choice) {
+        choice = choice.toUpperCase();
+        
+        switch (choice) {
+            case "N":
+                this.startNewGame();
+                break;
+            case "G":
+            this.startExistingGame();
+            break;
+            case "H":
+                this.displayHelpMenu();
+                break;
+            case "S":
+                this.saveGame();
+                break;
+            default:
+                System.out.println("\n*** Invalid Selection *** Try again");
+                break;
+        }
+        return false;
+    }
+
+    private void startNewGame() {
+       GameControl.createNewGame(Hunt.getPlayer());
+       
+       GameMenuView gameMenu = new GameMenuView();
+       gameMenu.displayMenu();
+    }
+
+    private void startExistingGame() {
+     System.out.println("\n startExistingGame called");   
+    }
+
+    private void displayHelpMenu() {
+      System.out.println("\n displayHelpMenu called");  
+    }
+
+    private void saveGame() {
+     System.out.println("\n saveGame called");   
     }
     
 }
