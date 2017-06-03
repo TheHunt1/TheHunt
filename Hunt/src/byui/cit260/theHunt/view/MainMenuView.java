@@ -7,6 +7,7 @@ package byui.cit260.theHunt.view;
 
 import byui.cit260.theHunt.control.GameControl;
 import hunt.Hunt;
+import java.util.Scanner;
 
 /**
  *
@@ -16,7 +17,7 @@ public class MainMenuView {
     private String menu;
     
     public MainMenuView (){
-        this.menu= "\n"
+        System.out.println("\n"
                 + "\n-------------------------------"
                 + "\n   Main Menu                   "
                 + "\n-------------------------------"
@@ -25,13 +26,14 @@ public class MainMenuView {
                 + "\nH - Get help on how to play"
                 + "\nS - Save game"
                 + "\nQ - Quit"
-                + "\n-------------------------------";
+                + "\n-------------------------------");
     }
-    void displayMainMenuView() {
+    
+    public void displayMainMenuView() {
         boolean done = false; //set flag to not done
        do {
            //prompt for and get player's name
-           String menuOption = this.getmenuOption();
+           String menuOption = this.getMenuOption();
            if(menuOption.toUpperCase().equals("Q"))
                return;
            
@@ -40,9 +42,26 @@ public class MainMenuView {
        while (!done);
     }
 
-    private String getmenuOption() {
-        System.out.println("\n GetMenuOption called");
-        return "N";
+
+    private String getMenuOption() {
+        Scanner keyboard = new Scanner(System.in);
+        String value = "";
+        boolean valid = false;
+        
+        while (!valid) {
+            System.out.println("\nEnter your choice");
+            
+            value = keyboard.nextLine();
+            value = value.trim();
+            
+            if(value.length() < 1) {
+                System.out.println("\nInvalid value; value can't be blank");
+                continue;
+                
+            }
+            break;
+        }
+        return value;
     }
 
     private boolean doAction(String choice) {

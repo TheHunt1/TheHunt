@@ -97,12 +97,13 @@ public class StartProgramView {
        System.out.println("\n=========================="
        +"\n Welcome to the game " + player.getName()
        + "\n Hope you have fun!"
-       + "\n========================="
+       + "\n=========================="
        );
        
        MainMenuView mainMenuView = new MainMenuView();
        
        mainMenuView.displayMainMenuView();
     }
+}
        
     

@@ -61,3 +61,4 @@ public class InventoryControl {
 		   return cash;
 	   }
 }
+}
