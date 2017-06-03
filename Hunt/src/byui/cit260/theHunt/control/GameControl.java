@@ -26,6 +26,7 @@ public class GameControl {
     }
 
     public static void createNewGame(Player player) {
+
         System.out.println("\n createNewGame called");
     }
     

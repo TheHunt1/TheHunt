@@ -60,5 +60,6 @@ public class InventoryControl {
 		   cash = cash - price;
 		   return cash;
 	   }
+    }
 }
-}
+

@@ -1,4 +1,3 @@
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -8,14 +7,12 @@ package byui.cit260.theHunt.view;
 
 /**
  *
- * @author Dragon
+ * @author MW
  */
-public class GameMenuView {
+public class HelpMenuView {
 
-    void displayMenu() {
-        System.out.println("\n displayMenu called");
+    void displayHelpMenuView() {
+        System.out.println("\n*** displayHelpMenu() function called ***");
     }
     
 }
-
-

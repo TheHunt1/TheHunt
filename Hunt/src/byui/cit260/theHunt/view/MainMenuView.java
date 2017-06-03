@@ -17,7 +17,7 @@ public class MainMenuView {
     private String menu;
     
     public MainMenuView (){
-        System.out.println("\n"
+        this.menu = ("\n"
                 + "\n-------------------------------"
                 + "\n   Main Menu                   "
                 + "\n-------------------------------"
@@ -50,6 +50,8 @@ public class MainMenuView {
         
         while (!valid) {
             System.out.println("\nEnter your choice");
+
+            System.out.println("\n" + this.menu);
             
             value = keyboard.nextLine();
             value = value.trim();
@@ -81,9 +83,10 @@ public class MainMenuView {
                 this.saveGame();
                 break;
             default:
-                System.out.println("\n*** Invalid Selection *** Try again");
+                System.out.println("\n*** Invalid selection *** Try again");
                 break;
         }
+
         return false;
     }
 
@@ -94,16 +97,31 @@ public class MainMenuView {
        gameMenu.displayMenu();
     }
 
-    private void startExistingGame() {
-     System.out.println("\n startExistingGame called");   
-    }
 
-    private void displayHelpMenu() {
-      System.out.println("\n displayHelpMenu called");  
-    }
+ 
 
     private void saveGame() {
      System.out.println("\n saveGame called");   
+        GameControl.createNewGame(Hunt.getPlayer());
+        
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.displayMenu();
     }
+
+    private void startExistingGame() {
+        System.out.println("*** startExistingFame function called ***");
+    }
+
+    private void displayHelpMenu() {
+        System.out.println("\n===================="
+                          + "\n  Help Menu"
+                          + "\n===================="
+                          );
+        
+        HelpMenuView helpMenuView = new HelpMenuView();
+        helpMenuView.displayHelpMenuView();
+    }
+
+
     
 }
