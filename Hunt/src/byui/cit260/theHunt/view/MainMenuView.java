@@ -28,20 +28,18 @@ public class MainMenuView {
                 + "\nQ - Quit"
                 + "\n-------------------------------");
     }
-    
-    public void displayMainMenuView() {
+    void displayMainMenuView() {
         boolean done = false; //set flag to not done
        do {
            //prompt for and get player's name
            String menuOption = this.getMenuOption();
            if(menuOption.toUpperCase().equals("Q"))
-               return;
+               new QuitGameView().displayMainMenuView();
            
            done = this.doAction(menuOption);
        }
        while (!done);
     }
-
 
     private String getMenuOption() {
         Scanner keyboard = new Scanner(System.in);
@@ -49,8 +47,6 @@ public class MainMenuView {
         boolean valid = false;
         
         while (!valid) {
-            System.out.println("\nEnter your choice");
-
             System.out.println("\n" + this.menu);
             
             value = keyboard.nextLine();
@@ -67,6 +63,7 @@ public class MainMenuView {
     }
 
     private boolean doAction(String choice) {
+       
         choice = choice.toUpperCase();
         
         switch (choice) {
@@ -96,10 +93,6 @@ public class MainMenuView {
        GameMenuView gameMenu = new GameMenuView();
        gameMenu.displayGameMenuView();
     }
-
-
- 
-
     private void saveGame() {
      System.out.println("\n saveGame called");   
         GameControl.createNewGame(Hunt.getPlayer());
@@ -107,6 +100,7 @@ public class MainMenuView {
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.displayGameMenuView();
     }
+
 
     private void startExistingGame() {
         System.out.println("*** startExistingFame function called ***");
@@ -117,7 +111,5 @@ public class MainMenuView {
         HelpMenuView helpMenuView = new HelpMenuView();
         helpMenuView.displayHelpMenuView();
     }
-
-
     
 }
