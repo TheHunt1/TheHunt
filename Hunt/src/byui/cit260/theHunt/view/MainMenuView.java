@@ -113,11 +113,7 @@ public class MainMenuView {
     }
 
     private void displayHelpMenu() {
-        System.out.println("\n===================="
-                          + "\n  Help Menu"
-                          + "\n===================="
-                          );
-        
+
         HelpMenuView helpMenuView = new HelpMenuView();
         helpMenuView.displayHelpMenuView();
     }
