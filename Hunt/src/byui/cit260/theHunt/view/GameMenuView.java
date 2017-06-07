@@ -85,8 +85,9 @@ public class GameMenuView {
 
     private void SelectLocation() {
         System.out.println("SelectLocation called");
-        AnimalMenuView animalMenuView = new AnimalMenuView();
-        animalMenuView.displayAnimalMenuView();
+        LocationMenuView locationMenuView = new LocationMenuView();
+        locationMenuView.displayLocationMenuView();
+       
     }
 
     private void PlayerInfo() {

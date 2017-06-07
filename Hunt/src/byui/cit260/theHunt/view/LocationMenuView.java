@@ -11,25 +11,24 @@ import java.util.Scanner;
  *
  * @author Dragon
  */
-public class AnimalMenuView {
+public class LocationMenuView {
 private String menu;
     
-    public AnimalMenuView (){
+    public LocationMenuView (){
         this.menu = ("\n"
                 + "\n-------------------------------"
-                + "\n   Animal Menu                   "
+                + "\n   Location Menu                   "
                 + "\n-------------------------------"
-                + "\n Choose what animal you want to"
-                + "\n hunt."
-                + "\nA - Alligator"
-                + "\nD - Deer"
-                + "\nR - Rabbit"
-                + "\nP - Pheasant"
+                + "\n Choose your hunting terrain"
+                + "\nR - The Rockies"
+                + "\nF - Florida Swamps"
+                + "\nW - Western Plains"
+                + "\nJ - Jungle"
                 + "\nQ - Quit"
                 + "\n-------------------------------");
     }
     
-    public void displayAnimalMenuView() {
+    public void displayLocationMenuView() {
         boolean done = false; //set flag to not done
        do {
            //prompt for and get player's name
@@ -70,22 +69,21 @@ private String menu;
         choice = choice.toUpperCase();
         
         switch (choice) {
-            case "A":
-                System.out.println("\n You chose to hunt an alligator");
-                this.MapView();
-                break;
-            case "D":
-            System.out.println("\n You chose to hunt a deer");
-            this.MapView();
-            break;
             case "R":
-                System.out.println("\n You chose to hunt a rabbit");
-                this.MapView();
+                System.out.println("\n You are hunting in the Rockies");
+                this.AnimalMenuView ();
                 break;
-                
-            case "P":
-                System.out.println("\n You chose to hunt a pheasant");
-                this.MapView();
+            case "F":
+                System.out.println("\n You are hunting in the Florida Swamps");
+            this.AnimalMenuView ();
+            break;
+            case "W":
+                System.out.println("\n You are hunting in the Western Plains");
+                this.AnimalMenuView ();
+                break;
+            case "J":
+                System.out.println("\n You are hunting in the jungle");
+                this.AnimalMenuView ();
                 break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
@@ -95,8 +93,9 @@ private String menu;
         return false;
     }
 
-    private void MapView() {
-        System.out.println("\n MapView function called"); //This will become another view where player chooses the size of the map
+    private void AnimalMenuView() {
+        AnimalMenuView animalMenuView = new AnimalMenuView();
+        animalMenuView.displayAnimalMenuView();
     }
-  
+    
 }
