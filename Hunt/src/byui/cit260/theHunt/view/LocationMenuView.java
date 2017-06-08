@@ -12,7 +12,8 @@ import java.util.Scanner;
  * @author Dragon
  */
 public class LocationMenuView {
-private String menu;
+
+    private String menu;
     
     public LocationMenuView (){
         this.menu = ("\n"

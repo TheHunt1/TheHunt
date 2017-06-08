@@ -30,6 +30,9 @@ if (hitOrMiss >71) {
     System.out.println("Hit");
 	return 1;
 }
+if (hitOrMiss < 0){
+    return -1;
+}
 return hitOrMiss;
     }
     
