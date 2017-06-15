@@ -58,14 +58,14 @@ public class MainMenuView extends View {
        GameControl.createNewGame(Hunt.getPlayer());
        
        GameMenuView gameMenu = new GameMenuView();
-       gameMenu.displayGameMenuView();
+       gameMenu.display();
     }
     private void saveGame() {
      System.out.println("\n saveGame called");   
         GameControl.createNewGame(Hunt.getPlayer());
         
         GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayGameMenuView();
+        gameMenu.display();
     }
 
 
@@ -76,7 +76,8 @@ public class MainMenuView extends View {
     private void displayHelpMenu() {
 
         HelpMenuView helpMenuView = new HelpMenuView();
-        helpMenuView.displayHelpMenuView();
+        helpMenuView.display();
     }
+    
     
 }

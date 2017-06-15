@@ -11,11 +11,10 @@ import java.util.Scanner;
  *
  * @author MW
  */
-public class AmmoStoreMenuView {
-        private String menu;
+public class AmmoStoreMenuView extends View {
     
     public AmmoStoreMenuView () {
-        this.menu = ("\n"
+        super ("\n"
                 + "\n---------------------------------"
                 + "\n      Ammo Store              "
                 + "\n---------------------------------"
@@ -24,43 +23,9 @@ public class AmmoStoreMenuView {
                 + "\nB - Back");   
     }
     
-    public void displayWeaponStoreMenuView() {
-        boolean done = false; //set flag to not done
-       do {
-           //prompt for and get player's name
-           String menuOption = this.getMenuOption();
-           if(menuOption.toUpperCase().equals("Q"))
-               return;
-           
-           done = this.doAction(menuOption);
-       }
-       while (!done);
-    }
-
-    private String getMenuOption() {
-        Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean valid = false;
-        
-        while (!valid) {
-            System.out.println("\nEnter your choice");
-
-            System.out.println("\n" + this.menu);
-            
-            value = keyboard.nextLine();
-            value = value.trim();
-            
-            if(value.length() < 1) {
-                System.out.println("\nInvalid value; value can't be blank");
-                continue;
-                
-            }
-            break;
-        }
-        return value;
-    }
-
-    private boolean doAction(String choice) {
+    
+@Override
+   public boolean doAction(String choice) {
         choice = choice.toUpperCase();
         
         switch (choice) {

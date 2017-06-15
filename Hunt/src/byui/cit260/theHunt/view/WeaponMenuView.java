@@ -11,11 +11,10 @@ import java.util.Scanner;
  *
  * @author Daniel Melo
  */
-public class WeaponMenuView {
-    private String menu;
+public class WeaponMenuView extends View{
     
     public WeaponMenuView (){
-        this.menu = ("\n"
+        super ("\n"
                 + "\n-------------------------------"
                 + "\n   Weapon Menu                   "
                 + "\n-------------------------------"
@@ -27,44 +26,9 @@ public class WeaponMenuView {
                 + "\n-------------------------------");
     }
     
-    public void displayLocationMenuView() {
-        boolean done = false; //set flag to not done
-       do {
-           //prompt for and get player's name
-           String menuOption = this.getMenuOption();
-           if(menuOption.toUpperCase().equals("Q"))
-               return;
-           
-           done = this.doAction(menuOption);
-       }
-       while (!done);
-    }
-
-
-    private String getMenuOption() {
-        Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean valid = false;
-        
-        while (!valid) {
-            System.out.println("\nEnter your choice");
-
-            System.out.println("\n" + this.menu);
-            
-            value = keyboard.nextLine();
-            value = value.trim();
-            
-            if(value.length() < 1) {
-                System.out.println("\nInvalid value; value can't be blank");
-                continue;
-                
-            }
-            break;
-        }
-        return value;
-    }
-
-    private boolean doAction(String choice) {
+   
+@Override
+    public boolean doAction(String choice) {
         choice = choice.toUpperCase();
         
         switch (choice) {
@@ -90,6 +54,6 @@ public class WeaponMenuView {
 
     private void GameMenuView() {
         GameMenuView gameMenuView = new GameMenuView();
-        gameMenuView.displayGameMenuView();
+        gameMenuView.display();
     }
 }

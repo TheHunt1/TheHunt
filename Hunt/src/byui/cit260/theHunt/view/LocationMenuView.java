@@ -11,12 +11,10 @@ import java.util.Scanner;
  *
  * @author Dragon
  */
-public class LocationMenuView {
-
-    private String menu;
+public class LocationMenuView extends View{
     
     public LocationMenuView (){
-        this.menu = ("\n"
+        super ("\n"
                 + "\n-------------------------------"
                 + "\n   Location Menu                   "
                 + "\n-------------------------------"
@@ -29,47 +27,12 @@ public class LocationMenuView {
                 + "\n-------------------------------");
     }
     
-    public void displayLocationMenuView() {
-        boolean done = false; //set flag to not done
-       do {
-           //prompt for and get player's name
-           String menuOption = this.getMenuOption();
-           if(menuOption.toUpperCase().equals("Q"))
-               return;
-           
-           done = this.doAction(menuOption);
-       }
-       while (!done);
-    }
-
-
-    private String getMenuOption() {
-        Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean valid = false;
+   
+@Override
+    public boolean doAction(String value) {
+        value = value.toUpperCase();
         
-        while (!valid) {
-            System.out.println("\nEnter your choice");
-
-            System.out.println("\n" + this.menu);
-            
-            value = keyboard.nextLine();
-            value = value.trim();
-            
-            if(value.length() < 1) {
-                System.out.println("\nInvalid value; value can't be blank");
-                continue;
-                
-            }
-            break;
-        }
-        return value;
-    }
-
-    private boolean doAction(String choice) {
-        choice = choice.toUpperCase();
-        
-        switch (choice) {
+        switch (value) {
             case "R":
                 System.out.println("\n You are hunting in the Rockies");
                 this.AnimalMenuView ();
@@ -96,7 +59,7 @@ public class LocationMenuView {
 
     private void AnimalMenuView() {
         AnimalMenuView animalMenuView = new AnimalMenuView();
-        animalMenuView.displayAnimalMenuView();
+        animalMenuView.display();
     }
     
 }

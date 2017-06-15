@@ -12,11 +12,10 @@ import java.util.Scanner;
  *
  * @author Dragon
  */
-public class GameMenuView {
-    private String menu;
+public class GameMenuView extends View{
     
     public GameMenuView (){
-        this.menu = ("\n"
+        super ("\n"
                 + "\n-------------------------------"
                 + "\n   Game Menu                   "
                 + "\n-------------------------------"
@@ -26,44 +25,9 @@ public class GameMenuView {
                 + "\n-------------------------------");
     }
     
-    public void displayGameMenuView() {
-        boolean done = false; //set flag to not done
-       do {
-           //prompt for and get player's name
-           String menuOption = this.getMenuOption();
-           if(menuOption.toUpperCase().equals("Q"))
-               return;
-           
-           done = this.doAction(menuOption);
-       }
-       while (!done);
-    }
-
-
-    private String getMenuOption() {
-        Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean valid = false;
-        
-        while (!valid) {
-            System.out.println("\nEnter your choice");
-
-            System.out.println("\n" + this.menu);
-            
-            value = keyboard.nextLine();
-            value = value.trim();
-            
-            if(value.length() < 1) {
-                System.out.println("\nInvalid value; value can't be blank");
-                continue;
-                
-            }
-            break;
-        }
-        return value;
-    }
-
-    private boolean doAction(String choice) {
+   
+@Override
+   public boolean doAction(String choice) {
         choice = choice.toUpperCase();
         
         switch (choice) {
@@ -86,7 +50,7 @@ public class GameMenuView {
     private void SelectLocation() {
         System.out.println("SelectLocation called");
         LocationMenuView locationMenuView = new LocationMenuView();
-        locationMenuView.displayLocationMenuView();
+        locationMenuView.display();
        
     }
 
