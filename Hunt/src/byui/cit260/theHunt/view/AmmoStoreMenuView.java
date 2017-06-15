@@ -5,38 +5,46 @@
  */
 package byui.cit260.theHunt.view;
 
-import byui.cit260.theHunt.control.GameControl;
 import java.util.Scanner;
 
 /**
  *
- * @author daniel.freitas
+ * @author MW
  */
-public class QuitGameView {
-    private String menu;
-    public QuitGameView(){
-        this.menu = "-------------------------------\n"
-                  + "         ***Quit Game***       \n"
-                  + "-------------------------------\n"
-                  + "Are you sure you want to quit the game?\nY - Yes\nN - No\n"
-                  + "-------------------------------";
+public class AmmoStoreMenuView {
+        private String menu;
+    
+    public AmmoStoreMenuView () {
+        this.menu = ("\n"
+                + "\n---------------------------------"
+                + "\n      Ammo Store              "
+                + "\n---------------------------------"
+                + "\nW - Ammunition list (including cost)"
+                + "\nP - Purchase ammunition"
+                + "\nB - Back");   
     }
-    void displayMainMenuView() {
+    
+    public void displayWeaponStoreMenuView() {
         boolean done = false; //set flag to not done
        do {
            //prompt for and get player's name
            String menuOption = this.getMenuOption();
+           if(menuOption.toUpperCase().equals("Q"))
+               return;
            
            done = this.doAction(menuOption);
-       } while (!done);
+       }
+       while (!done);
     }
-    
+
     private String getMenuOption() {
         Scanner keyboard = new Scanner(System.in);
         String value = "";
         boolean valid = false;
         
         while (!valid) {
+            System.out.println("\nEnter your choice");
+
             System.out.println("\n" + this.menu);
             
             value = keyboard.nextLine();
@@ -51,22 +59,25 @@ public class QuitGameView {
         }
         return value;
     }
-    
+
     private boolean doAction(String choice) {
-       
         choice = choice.toUpperCase();
         
         switch (choice) {
-            case "Y":
-                GameControl.quitGame();
-            case "N":
-            new MainMenuView().display();
-            break;
+            case "W":
+                System.out.println("\n*** Display list of available weapons"
+                + "\nincluding the price.");
+                break;
+            case "P":
+                System.out.println("\nUse the money you earned from your kills "
+                + "\nto purchase a ammunition. Here you will select and purchase "
+                + "\nammunition");
+                break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
         }
-
         return false;
     }
+    
 }
