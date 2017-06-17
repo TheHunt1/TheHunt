@@ -21,6 +21,7 @@ public class GameMenuView extends View{
                 + "\n-------------------------------"
                 + "\nL - Select the loctaion"
                 + "\nD - Display Player Info"
+                + "\nH - Hunt Scene" //Tempory placement
                 + "\nQ - Quit"
                 + "\n-------------------------------");
     }
@@ -37,6 +38,9 @@ public class GameMenuView extends View{
             case "D":
             this.PlayerInfo();
             break;
+            case "H":
+                this.HuntScene ();
+                break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
@@ -56,6 +60,11 @@ public class GameMenuView extends View{
 
     private void PlayerInfo() {
         System.out.println("PlayerInfo function called");
+    }
+
+    private void HuntScene() {
+        HuntSceneView huntSceneView = new HuntSceneView ();
+        huntSceneView.display();
     }
     
 }
