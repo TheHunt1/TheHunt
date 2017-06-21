@@ -22,6 +22,7 @@ public class GameMenuView extends View{
                 + "\nL - Select the loctaion"
                 + "\nD - Display Player Info"
                 + "\nH - Hunt Scene" //Tempory placement
+                + "\nW - Weapon Store"
                 + "\nQ - Quit"
                 + "\n-------------------------------");
     }
@@ -40,6 +41,9 @@ public class GameMenuView extends View{
             break;
             case "H":
                 this.HuntScene ();
+                break;
+            case "W":
+                this.WeaponStore();
                 break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
@@ -65,6 +69,10 @@ public class GameMenuView extends View{
     private void HuntScene() {
         HuntSceneView huntSceneView = new HuntSceneView ();
         huntSceneView.display();
+    }
+    private void WeaponStore() {
+        WeaponStoreMenuView weaponStoreMenuView = new WeaponStoreMenuView ();
+        weaponStoreMenuView.display();
     }
     
 }

@@ -11,10 +11,7 @@ package byui.cit260.theHunt.view;
  */
 public class InventoryView extends View{
     public InventoryView (){
-    //Mitchell add code here
-    
-    
-    
+        //Enter code here
     }
     
     @Override
