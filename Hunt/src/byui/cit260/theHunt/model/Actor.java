@@ -5,6 +5,7 @@
  */
 package byui.cit260.theHunt.model;
 
+import java.awt.Point;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -12,64 +13,27 @@ import java.util.Objects;
  *
  * @author MW
  */
-public class Actor implements Serializable {
+public enum Actor implements Serializable {
+    Predator ("This animal kills you"),
+    Alligator ("Found in the swamps"),
+    Deer ("Found everywhere"),
+    Rabbit ("Easy animal to hunt"),
+    Pheasant ("A bird");
     
-    private String name;
-    private String animal;
+    private final Point coordinates;
+    private final String animal;
 
-    public Actor() {
+    Actor(String animal) {
+        this.animal = animal;
+        coordinates = new Point (1,1);
     }
 
-        
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
+    public Point getCoordinates (){
+        return coordinates;
+    }    
 
     public String getAnimal() {
         return animal;
     }
-
-    public void setAnimal(String animal) {
-        this.animal = animal;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 29 * hash + Objects.hashCode(this.name);
-        hash = 29 * hash + Objects.hashCode(this.animal);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Actor other = (Actor) obj;
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
-        if (!Objects.equals(this.animal, other.animal)) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "Actor{" + "name=" + name + ", animal=" + animal + '}';
-    }
-    
-        
+     
 }
