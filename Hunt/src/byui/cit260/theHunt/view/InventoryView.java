@@ -9,15 +9,16 @@ package byui.cit260.theHunt.view;
  *
  * @author Dragon
  */
-public class InventoryView extends View{
-    public InventoryView (){
+public class InventoryView extends View {
+
+    public InventoryView() {
         //Enter code here
     }
-    
+
     @Override
-   public boolean doAction(String choice){
-   System.out.println("DoAction");
-   return true;
-   }
-   
+    public boolean doAction(String choice) {
+        System.out.println("DoAction");
+        return true;
+    }
+
 }

@@ -14,7 +14,7 @@ import java.io.Serializable;
 public class WeaponStore implements Serializable{
     private int weaponPrices;
     private int playerMoney;
-
+    
     public WeaponStore() {
     }
 
