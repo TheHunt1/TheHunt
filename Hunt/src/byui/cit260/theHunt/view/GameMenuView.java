@@ -6,6 +6,8 @@
  */
 package byui.cit260.theHunt.view;
 
+import byui.cit260.theHunt.control.GameControl;
+import hunt.Hunt;
 import java.util.Scanner;
 
 /**
@@ -19,6 +21,7 @@ public class GameMenuView extends View{
                 + "\n-------------------------------"
                 + "\n   Game Menu                   "
                 + "\n-------------------------------"
+                + "\nN - Start new game"
                 + "\nL - Select the loctaion"
                 + "\nD - Display Player Info"
                 + "\nH - Hunt Scene" //Tempory placement
@@ -33,6 +36,9 @@ public class GameMenuView extends View{
         choice = choice.toUpperCase();
         
         switch (choice) {
+            case "N":
+                this.startNewGame();
+                break;
             case "L":
                 this.SelectLocation();
                 break;
@@ -54,6 +60,9 @@ public class GameMenuView extends View{
     }
     
     
+    private void startNewGame() {
+       GameControl.createNewGame(Hunt.getPlayer());
+    }
 
     private void SelectLocation() {
         System.out.println("SelectLocation called");

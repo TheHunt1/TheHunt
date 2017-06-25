@@ -15,7 +15,11 @@ import java.util.Objects;
 public class Game implements Serializable {
     
     private String mapSelect;
-    private String addPlayer;    
+    private String addPlayer;
+    private Player player;
+    private Map map;
+    private Actor[] actor;
+    private Inventory[] inventory;
 
     public String getMapSelect() {
         return mapSelect;
@@ -28,7 +32,39 @@ public class Game implements Serializable {
     public void setAddPlayer(String addPlayer) {
         this.addPlayer = addPlayer;
     }
+    
+    public Player getPlayer() {
+        return player;
+    }
+    
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+    
+    public Map getMap() {
+        return map;
+    }
+    
+    public void setMap(Map map) {
+        this.map = map;
+    }
 
+    public Actor[] getActor() {
+        return actor;
+    }
+
+    public void setActor(Actor[] actor) {
+        this.actor = actor;
+    }
+
+    public Inventory[] getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(Inventory[] inventory) {
+        this.inventory = inventory;
+    }
+    
     public Game() {
     }
 

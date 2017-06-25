@@ -22,7 +22,10 @@ public enum Actor implements Serializable {
     
     private final Point coordinates;
     private final String animal;
-
+    
+    private Location location;
+    private Game game;
+    
     Actor(String animal) {
         this.animal = animal;
         coordinates = new Point (1,1);
@@ -34,6 +37,22 @@ public enum Actor implements Serializable {
 
     public String getAnimal() {
         return animal;
+    }
+    
+    public Location getLocation() {
+        return location;
+    }
+    
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+    
+    public Game getGame() {
+        return game;
+    }
+    
+    public void setGame(Game game) {
+        this.game = game;
     }
      
 }

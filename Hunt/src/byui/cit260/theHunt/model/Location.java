@@ -16,6 +16,8 @@ public class Location implements Serializable {
     
     private String visited;
     private String coordinates;
+    private HuntScene huntscene;
+    private Actor[] actor;
 
     public Location() {
     }
@@ -35,6 +37,22 @@ public class Location implements Serializable {
 
     public void setCoordinates(String coordinates) {
         this.coordinates = coordinates;
+    }
+    
+    public HuntScene getHuntscene() {
+        return huntscene;
+    }
+
+    public void setHuntscene(HuntScene huntscene) {
+        this.huntscene = huntscene;
+    }
+
+    public Actor[] getActor() {
+        return actor;
+    }
+
+    public void setActor(Actor[] actor) {
+        this.actor = actor;
     }
 
     @Override

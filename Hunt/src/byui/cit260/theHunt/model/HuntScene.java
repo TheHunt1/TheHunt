@@ -18,6 +18,7 @@ public class HuntScene implements Serializable{
     private String sceneType;
     private String description;
     private int animalPoints;
+    private Location[] location;
 
     public HuntScene() {
     }
@@ -61,6 +62,14 @@ public class HuntScene implements Serializable{
 
     public void setAnimalPoints(int animalPoints) {
         this.animalPoints = animalPoints;
+    }
+
+    public Location[] getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location[] location) {
+        this.location = location;
     }
 
     @Override

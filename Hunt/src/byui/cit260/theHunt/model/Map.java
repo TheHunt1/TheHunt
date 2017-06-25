@@ -23,6 +23,7 @@ public class Map implements Serializable{
     private int currentRow;
     private int currentColumn;
     private String currentScene;
+    private Game[] game;
 
     public Map() {
     }
@@ -99,6 +100,14 @@ public class Map implements Serializable{
 
     public void setCurrentScene(String currentScene) {
         this.currentScene = currentScene;
+    }
+
+    public Game[] getGame() {
+        return game;
+    }
+
+    public void setGame(Game[] game) {
+        this.game = game;
     }
 
     @Override
