@@ -14,80 +14,58 @@ import java.util.Objects;
  */
 public class Location implements Serializable {
     
-    private String visited;
-    private String coordinates;
-    private HuntScene huntscene;
-    private Actor[] actor;
+    private boolean visited;
+    private int row;
+    private int column;
+    private Scene scene;
+    private ArrayList<Actor> actor;
 
     public Location() {
     }
 
-    
-    public String getVisited() {
+    public boolean isVisited() {
         return visited;
     }
 
-    public void setVisited(String visited) {
+    public void setVisited(boolean visited) {
         this.visited = visited;
     }
 
-    public String getCoordinates() {
-        return coordinates;
+    public int getRow() {
+        return row;
     }
 
-    public void setCoordinates(String coordinates) {
-        this.coordinates = coordinates;
-    }
-    
-    public HuntScene getHuntscene() {
-        return huntscene;
+    public void setRow(int row) {
+        this.row = row;
     }
 
-    public void setHuntscene(HuntScene huntscene) {
-        this.huntscene = huntscene;
+    public int getColumn() {
+        return column;
     }
 
-    public Actor[] getActor() {
+    public void setColumn(int column) {
+        this.column = column;
+    }
+
+    public Scene getScene() {
+        return scene;
+    }
+
+    public void setScene(Scene scene) {
+        this.scene = scene;
+    }
+
+    public <any> getActor() {
         return actor;
     }
 
-    public void setActor(Actor[] actor) {
+    public void setActor(<any> actor) {
         this.actor = actor;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 11 * hash + Objects.hashCode(this.visited);
-        hash = 11 * hash + Objects.hashCode(this.coordinates);
-        return hash;
-    }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Location other = (Location) obj;
-        if (!Objects.equals(this.visited, other.visited)) {
-            return false;
-        }
-        if (!Objects.equals(this.coordinates, other.coordinates)) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "Location{" + "visited=" + visited + ", coordinates=" + coordinates + '}';
-    }
+    
+  
     
     
     

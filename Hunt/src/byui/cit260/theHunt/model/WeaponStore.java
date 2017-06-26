@@ -14,7 +14,6 @@ import java.io.Serializable;
 public class WeaponStore implements Serializable{
     private int weaponPrices;
     private int playerMoney;
-    private Inventory[] inventory;
 
     public WeaponStore() {
     }
@@ -34,14 +33,6 @@ public class WeaponStore implements Serializable{
 
     public void setPlayerMoney(int playerMoney) {
         this.playerMoney = playerMoney;
-    }
-
-    public Inventory[] getInventory() {
-        return inventory;
-    }
-
-    public void setInventory(Inventory[] inventory) {
-        this.inventory = inventory;
     }
 
     @Override

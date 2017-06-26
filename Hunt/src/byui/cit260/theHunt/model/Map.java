@@ -23,10 +23,32 @@ public class Map implements Serializable{
     private int currentRow;
     private int currentColumn;
     private String currentScene;
-    private Game[] game;
+    private Location [] [] locations;
 
-    public Map() {
+    public Map( int totalRows, int totalColums) {
+        if (totalRows < 1 || totalColums <1){
+            System.out.println("The rows and columes must be >0");
+            return;
+        }
+        
+        this.totalRows= totalRows;
+        this.totalColumns = totalColums;
+        
+        this.locations = new Location [totalRows] [totalColums];
+        
+        for (int row = 0; row < totalRows; row++) {
+            for(int column = 0; column < totalColums; column++){
+                Location location = new Location();
+                location.setColumn(column);
+                location.setRow(row);
+                location.setVisited(false);
+                
+                locations [row] [column] = location;
+            }
+        }
     }
+
+    
     
     
 
@@ -100,14 +122,6 @@ public class Map implements Serializable{
 
     public void setCurrentScene(String currentScene) {
         this.currentScene = currentScene;
-    }
-
-    public Game[] getGame() {
-        return game;
-    }
-
-    public void setGame(Game[] game) {
-        this.game = game;
     }
 
     @Override

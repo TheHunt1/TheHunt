@@ -15,7 +15,6 @@ public class AmmoStore implements Serializable{
     private int ammoPrices;
     private int ammoQuanity;
     private int playermoney;
-    private Inventory[] inventory;
 
     public AmmoStore() {
     }
@@ -43,14 +42,6 @@ public class AmmoStore implements Serializable{
 
     public void setPlayermoney(int playermoney) {
         this.playermoney = playermoney;
-    }
-
-    public Inventory[] getInventory() {
-        return inventory;
-    }
-
-    public void setInventory(Inventory[] inventory) {
-        this.inventory = inventory;
     }
 
     @Override

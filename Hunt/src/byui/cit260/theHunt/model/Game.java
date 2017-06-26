@@ -5,6 +5,7 @@
  */
 package byui.cit260.theHunt.model;
 
+import byui.cit260.theHunt.control.GameControl;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -13,13 +14,16 @@ import java.util.Objects;
  * @author MW
  */
 public class Game implements Serializable {
-    
+
+    public static void setPlayer(Player player) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private Player player;
     private String mapSelect;
     private String addPlayer;
-    private Player player;
-    private Map map;
-    private Actor[] actor;
-    private Inventory[] inventory;
+    private Map map; 
+private InventoryItem[] inventory;    
 
     public String getMapSelect() {
         return mapSelect;
@@ -32,39 +36,7 @@ public class Game implements Serializable {
     public void setAddPlayer(String addPlayer) {
         this.addPlayer = addPlayer;
     }
-    
-    public Player getPlayer() {
-        return player;
-    }
-    
-    public void setPlayer(Player player) {
-        this.player = player;
-    }
-    
-    public Map getMap() {
-        return map;
-    }
-    
-    public void setMap(Map map) {
-        this.map = map;
-    }
 
-    public Actor[] getActor() {
-        return actor;
-    }
-
-    public void setActor(Actor[] actor) {
-        this.actor = actor;
-    }
-
-    public Inventory[] getInventory() {
-        return inventory;
-    }
-
-    public void setInventory(Inventory[] inventory) {
-        this.inventory = inventory;
-    }
-    
     public Game() {
     }
 
@@ -101,6 +73,24 @@ public class Game implements Serializable {
     public String toString() {
         return "Game{" + "mapSelect=" + mapSelect + ", addPlayer=" + addPlayer + '}';
     }
+
+    public void setMap(Map map) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setInventory(GameControl.InventoryItem[] inventoryList) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private static class InventoryItem {
+
+        public InventoryItem() {
+        }
+    }
+
+    
+
+    
     
     
     

@@ -6,23 +6,24 @@
 package byui.cit260.theHunt.control;
 
 import byui.cit260.theHunt.model.Map;
+import byui.cit260.theHunt.model.Scene;
 
 /**
  *
  * @author MW
  */
 public class MapControl {
+  static Map createMap (){
+      Map map = new Map (20, 20);
+      
+      Scene [] scenes = createScenes ();
+      
+      GameControl.assignSceneToLocations (map, scenes);
+      return map;
+  }  
 
-    static Map createMap() {
-        Map map = null;
-        
-        System.out.println("\n*** createMap() called ***");
-        
-        return map;
+    private static Scene[] createScenes() {
+        Scene [] scenes = new Scene[SceneType.values().length];
+        return scenes;
     }
-
-    static void moveActorsToStartingLocation(Map map) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
 }

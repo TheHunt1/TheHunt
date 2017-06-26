@@ -18,7 +18,6 @@ public class Player implements Serializable{
   private int x_axis;
   private int y_axis;
   private int energy;
-  private Game[] game;
 
     public Player() {
     }
@@ -55,14 +54,6 @@ public class Player implements Serializable{
 
     public void setEnergy(int energy) {
         this.energy = energy;
-    }
-
-    public Game[] getGame() {
-        return game;
-    }
-
-    public void setGame(Game[] game) {
-        this.game = game;
     }
 
     @Override

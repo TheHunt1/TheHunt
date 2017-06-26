@@ -16,10 +16,7 @@ public class Inventory implements Serializable{
    private String food; 
    private String gear;
    private int ammo;
-      
-   private Game game;
-   private AmmoStore ammostore;
-   private WeaponStore weaponstore;
+   private String ammoStore;
 
     public Inventory() {
     }
@@ -48,29 +45,13 @@ public class Inventory implements Serializable{
     public void setAmmo(int ammo) {
         this.ammo = ammo;
     }
-    
-    public Game getGame() {
-        return game;
-    }
-    
-    public void setGame(Game game) {
-        this.game = game;
-    }
-    
-    public AmmoStore getAmmoStore() {
-        return ammostore;
-    }
-    
-    public void setAmmoStore(AmmoStore ammostore) {
-        this.ammostore = ammostore;
+
+    public String getAmmoStore() {
+        return ammoStore;
     }
 
-    public WeaponStore getWeaponstore() {
-        return weaponstore;
-    }
-
-    public void setWeaponstore(WeaponStore weaponstore) {
-        this.weaponstore = weaponstore;
+    public void setAmmoStore(String ammoStore) {
+        this.ammoStore = ammoStore;
     }
 
     @Override
@@ -79,6 +60,7 @@ public class Inventory implements Serializable{
         hash = 59 * hash + Objects.hashCode(this.food);
         hash = 59 * hash + Objects.hashCode(this.gear);
         hash = 59 * hash + this.ammo;
+        hash = 59 * hash + Objects.hashCode(this.ammoStore);
         return hash;
     }
 
@@ -103,12 +85,15 @@ public class Inventory implements Serializable{
         if (!Objects.equals(this.gear, other.gear)) {
             return false;
         }
+        if (!Objects.equals(this.ammoStore, other.ammoStore)) {
+            return false;
+        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Inventory{" + "food=" + food + ", gear=" + gear + ", ammo=" + ammo + '}';
+        return "Inventory{" + "food=" + food + ", gear=" + gear + ", ammo=" + ammo + ", ammoStore=" + ammoStore + '}';
     }
    
     

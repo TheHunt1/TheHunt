@@ -6,7 +6,6 @@
 package byui.cit260.theHunt.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -82,49 +81,6 @@ public class Animal implements Serializable {
 
     public void setAmmoNeeded(String ammoNeeded) {
         this.ammoNeeded = ammoNeeded;
-    }
-    
-    public static ArrayList<Animal> listAnimals(){
-        ArrayList<Animal> animals = new ArrayList<>();
-        
-        Animal animal1 = new Animal();
-        Animal animal2 = new Animal();
-        Animal animal3 = new Animal();
-        Animal animal4 = new Animal();
-        
-        animal1.setName("Alligator");
-        animal1.setDifficulty(10);
-        animal1.setWeight(350);
-        animal1.setPoints(100);
-        animal1.setType("Reptile");
-        
-        animals.add(animal1);
-        
-        animal2.setName("Deer");
-        animal2.setDifficulty(15);
-        animal2.setWeight(400);
-        animal2.setPoints(150);
-        animal2.setType("Herbivorous");
-        
-        animals.add(animal2);
-        
-        animal3.setName("Rabbit");
-        animal3.setDifficulty(5);
-        animal3.setWeight(40);
-        animal3.setPoints(50);
-        animal3.setType("mammal");
-        
-        animals.add(animal3);
-        
-        animal4.setName("Pheasant");
-        animal4.setDifficulty(10);
-        animal4.setWeight(60);
-        animal4.setPoints(70);
-        animal4.setType("Oviparous");
-        
-        animals.add(animal4);
-        
-        return animals;
     }
 
     @Override

@@ -5,8 +5,6 @@
  */
 package byui.cit260.theHunt.view;
 
-import byui.cit260.theHunt.model.WeaponStore;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
