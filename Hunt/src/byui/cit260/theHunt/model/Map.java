@@ -20,10 +20,11 @@ public class Map implements Serializable{
     private String animalChoice;
     private int totalRows;
     private int totalColumns;
-    private int currentRow;
-    private int currentColumn;
+    private int currentRow = 0;
+    private int currentColumn = 0;
     private String currentScene;
-    private Location [] [] locations;
+    Location [] [] locations;
+      private Location currentLocation;
 
     public Map( int totalRows, int totalColums) {
         if (totalRows < 1 || totalColums <1){
@@ -184,6 +185,10 @@ public class Map implements Serializable{
     @Override
     public String toString() {
         return "Map{" + "locationDesciption=" + locationDesciption + ", locationArea=" + locationArea + ", mapChoice=" + mapChoice + ", animalChoice=" + animalChoice + ", totalRows=" + totalRows + ", totalColumns=" + totalColumns + ", currentRow=" + currentRow + ", currentColumn=" + currentColumn + ", currentScene=" + currentScene + '}';
+    }
+
+    public Location[][] getLocations() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

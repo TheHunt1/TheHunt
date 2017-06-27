@@ -8,6 +8,7 @@ package byui.cit260.theHunt.model;
 import byui.cit260.theHunt.control.GameControl;
 import java.io.Serializable;
 import java.util.Objects;
+import byui.cit260.theHunt.model.Map;
 
 /**
  *
@@ -23,6 +24,7 @@ public class Game implements Serializable {
     private String mapSelect;
     private String addPlayer;
     private Map map; 
+
 private InventoryItem[] inventory;    
 
     public String getMapSelect() {
@@ -81,6 +83,40 @@ private InventoryItem[] inventory;
     public void setInventory(GameControl.InventoryItem[] inventoryList) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    public Map getMap() {
+        System.out.println();
+    for( int row = 0; row < locations.length; row++){
+     System.out.print(row + " "); // print row numbers to side of map
+      for( int column = 0; column < locations[row].length; column++){
+        // set default indicators as blanks
+        leftIndicator = " ";
+        rightIndicator = " ";
+        if(locations[row][column] == map.getCurrentLocation()){
+          // Set star indicators to show this is the current location.
+          leftIndicator = "*"; 
+          rightIndicator = "*"; 
+        } 
+        else if(locations[row][column].isVisited()){
+           // Set < > indicators to show this location has been visited.
+           leftIndicator = ">"; // can be stars or whatever these are indicators showing visited
+           rightIndicator = "<"; // same as above
+        }
+       System.out.print("|"); // start map with a |
+        if(locations[row][column].getScene() == null)
+        {
+             // No scene assigned here so use ?? for the symbol
+             System.out.print(leftIndicator + "??" + rightIndicator);
+        }
+        else
+          System.out.print(leftIndicator
+             + locations[row][column].getScene().getMapSymbol()
+             + rightIndicator);
+      }
+     System.out.println("|");
+    }
+    }
+    
 
     private static class InventoryItem {
 
