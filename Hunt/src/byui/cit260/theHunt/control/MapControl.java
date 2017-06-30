@@ -10,6 +10,7 @@ import byui.cit260.theHunt.model.Map;
 import byui.cit260.theHunt.model.Scene;
 import exceptions.MapControlException;
 import hunt.Hunt;
+import java.awt.Point;
 
 
 /**

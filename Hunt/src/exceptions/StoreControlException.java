@@ -7,28 +7,25 @@ package exceptions;
 
 /**
  *
- * @author Dragon
+ * @author Daniel Melo
  */
-public class MapControlException extends Exception {
-
-    public MapControlException() {
+public class StoreControlException extends Exception{
+    public StoreControlException() {
     }
 
-    public MapControlException(String message) {
+    public StoreControlException(String message) {
         super(message);
     }
 
-    public MapControlException(String message, Throwable cause) {
+    public StoreControlException(String message, Throwable cause) {
         super(message, cause);
     }
 
-    public MapControlException(Throwable cause) {
+    public StoreControlException(Throwable cause) {
         super(cause);
     }
 
-    public MapControlException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+    public StoreControlException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
     } 
-    
-    
 }
