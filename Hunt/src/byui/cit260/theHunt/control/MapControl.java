@@ -5,8 +5,11 @@
  */
 package byui.cit260.theHunt.control;
 
+import byui.cit260.theHunt.model.Actor;
 import byui.cit260.theHunt.model.Map;
 import byui.cit260.theHunt.model.Scene;
+import exceptions.MapControlException;
+import hunt.Hunt;
 
 
 /**
@@ -80,6 +83,17 @@ public class MapControl {
         
         return scenes;
     }
+
+    public static void moveActorsToStartingLocation(Map map) throws MapControlException{
+        Actor [] actors = Actor.values();
+        
+        for (Actor actor : actors) {
+            Point coordinates = actor.getCoordinates();
+            MapControl.moveActorToLocation(actor, coordinates);
+            
+        }
+   
+    }
     
     public enum SceneType {
     
@@ -91,4 +105,18 @@ public class MapControl {
     ammo,
     finish;
     }
+    
+    public static void moveActorToLocation (Actor actor, Point coordinates) throws MapControlException {
+        Map map = Hunt.getCurrentGame().getMap();
+        int newRow = coordinates.x-1;
+        int newColumn = coordinates.y-1;
+        
+        if (newRow < 0 || newRow >= map.getTotalRows() || newColumn <0 || newColumn >= map.getTotalColumns()){
+            throw new MapControlException ("Can't move actor to location " 
+            + coordinates.x + ", " + coordinates.y + 
+                    "because location is outside the bounds of the map");
+        }
+       
+    }
+   
 }
