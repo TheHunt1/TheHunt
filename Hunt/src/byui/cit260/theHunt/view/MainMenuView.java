@@ -38,8 +38,8 @@ public class MainMenuView extends View {
                 this.startNewGame();
                 break;
             case "G":
-            this.startExistingGame();
-            break;
+                this.startExistingGame();
+                break;
             case "H":
                 this.displayHelpMenu();
                 break;
@@ -62,10 +62,6 @@ public class MainMenuView extends View {
     }
     private void saveGame() {
      System.out.println("\n saveGame called");   
-        GameControl.createNewGame(Hunt.getPlayer());
-        
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.display();
     }
 
 

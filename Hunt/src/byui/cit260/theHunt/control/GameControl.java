@@ -38,7 +38,7 @@ public class GameControl {
         Game.setPlayer(player);
         
         InventoryItem[] inventoryList = GameControl.createInventoryList ();
-        game.setInventory(inventoryList);
+        game.setInventoryList(inventoryList);
         
         Map map = MapControl.createMap();
         game.setMap(map);
@@ -119,7 +119,7 @@ public class GameControl {
         
     }
 
-    private static class InventoryItem {
+    public static class InventoryItem {
 
         public InventoryItem() {
         }

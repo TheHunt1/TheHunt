@@ -84,6 +84,7 @@ public class MapControl {
         return scenes;
     }
 
+
     public static void moveActorsToStartingLocation(Map map) throws MapControlException{
         Actor [] actors = Actor.values();
         

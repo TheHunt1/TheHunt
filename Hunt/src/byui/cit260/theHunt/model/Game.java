@@ -6,6 +6,7 @@
 package byui.cit260.theHunt.model;
 
 import byui.cit260.theHunt.control.GameControl;
+import byui.cit260.theHunt.model.Game.locations;
 import java.io.Serializable;
 import java.util.Objects;
 import byui.cit260.theHunt.model.Map;
@@ -25,7 +26,9 @@ public class Game implements Serializable {
     private String addPlayer;
     private Map map; 
 
-private InventoryItem[] inventory;    
+private Inventory[] inventory;
+private Actor[] actor;
+    private Object[] locations;
 
     public String getMapSelect() {
         return mapSelect;
@@ -80,7 +83,7 @@ private InventoryItem[] inventory;
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public void setInventory(GameControl.InventoryItem[] inventoryList) {
+    public void setInventoryList(GameControl.InventoryItem[] inventoryList) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -88,10 +91,10 @@ private InventoryItem[] inventory;
         System.out.println();
     for( int row = 0; row < locations.length; row++){
      System.out.print(row + " "); // print row numbers to side of map
-      for( int column = 0; column < locations[row].length; column++){
-        // set default indicators as blanks
-        leftIndicator = " ";
-        rightIndicator = " ";
+      for( int column = 0; column < locations [row].length; column++){
+         // set default indicators as blanks
+         String leftIndicator = " ";
+         String rightIndicator = " ";
         if(locations[row][column] == map.getCurrentLocation()){
           // Set star indicators to show this is the current location.
           leftIndicator = "*"; 
@@ -116,18 +119,29 @@ private InventoryItem[] inventory;
      System.out.println("|");
     }
     }
-    
 
-    private static class InventoryItem {
-
-        public InventoryItem() {
-        }
+    public Inventory[] getInventory() {
+        return inventory;
     }
 
-    
+    public void setInventory(Inventory[] inventory) {
+        this.inventory = inventory;
+    }  
 
-    
-    
-    
+    public Actor[] getActor() {
+        return actor;
+    }
+
+    public void setActor(Actor[] actor) {
+        this.actor = actor;
+    }
+
+    public static class locations {
+
+        private static int length;
+
+        public locations() {
+        }
+    }
     
 }

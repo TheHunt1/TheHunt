@@ -5,6 +5,7 @@
  */
 package byui.cit260.theHunt.view;
 
+import byui.cit260.theHunt.control.GameControl.InventoryItem;
 import byui.cit260.theHunt.model.Game;
 import byui.cit260.theHunt.model.Location;
 import byui.cit260.theHunt.model.Map;
@@ -45,7 +46,7 @@ public class InventoryView extends View{
        StringBuilder line;
        
        Game game = Hunt.getCurrentGame();
-       InventoryItem[] inventory = game.getInventory();
+        Game.InventoryItem[] inventory = game.getInventory();
        
        
        System.out.println("\n           LIST OF INVENTORY");
