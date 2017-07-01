@@ -11,8 +11,11 @@ import byui.cit260.theHunt.model.Location;
 import byui.cit260.theHunt.model.Map;
 import byui.cit260.theHunt.model.Player;
 import byui.cit260.theHunt.model.Scene;
+import exceptions.MapControlException;
 import hunt.Hunt;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -42,7 +45,11 @@ public class GameControl {
         
         Map map = MapControl.createMap();
         game.setMap(map);
-        MapControl.moveActorsToStartingLocation(map);
+        try {
+            MapControl.moveActorsToStartingLocation(map);
+        } catch (MapControlException ex) {
+            Logger.getLogger(GameControl.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
      
     public static void quitGame(){
