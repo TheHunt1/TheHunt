@@ -91,7 +91,7 @@ private Actor[] actor;
         System.out.println();
     for( int row = 0; row < locations.length; row++){
      System.out.print(row + " "); // print row numbers to side of map
-      for( int column = 0; column < locations [row].length; column++){
+      for( int column = 0; column < locations.length; column++){
          // set default indicators as blanks
          String leftIndicator = " ";
          String rightIndicator = " ";
