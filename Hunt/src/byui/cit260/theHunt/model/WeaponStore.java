@@ -12,19 +12,18 @@ import java.io.Serializable;
  * @author Dragon
  */
 public class WeaponStore implements Serializable{
-    private int weaponPrices;
+    private int weaponPrice;
     private int playerMoney;
 
     public WeaponStore() {
     }
 
-    
-    public int getWeaponPrices() {
-        return weaponPrices;
+    public int getWeaponPrice() {
+        return weaponPrice;
     }
 
-    public void setWeaponPrices(int weaponPrices) {
-        this.weaponPrices = weaponPrices;
+    public void setWeaponPrice(int weaponPrice) {
+        this.weaponPrice = weaponPrice;
     }
 
     public int getPlayerMoney() {
@@ -38,7 +37,7 @@ public class WeaponStore implements Serializable{
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 47 * hash + this.weaponPrices;
+        hash = 47 * hash + this.weaponPrice;
         hash = 47 * hash + this.playerMoney;
         return hash;
     }
@@ -55,7 +54,7 @@ public class WeaponStore implements Serializable{
             return false;
         }
         final WeaponStore other = (WeaponStore) obj;
-        if (this.weaponPrices != other.weaponPrices) {
+        if (this.weaponPrice != other.weaponPrice) {
             return false;
         }
         if (this.playerMoney != other.playerMoney) {
@@ -66,7 +65,7 @@ public class WeaponStore implements Serializable{
 
     @Override
     public String toString() {
-        return "WeaponStore{" + "weaponPrices=" + weaponPrices + ", playerMoney=" + playerMoney + '}';
+        return "WeaponStore{" + "weaponPrices=" + weaponPrice + ", playerMoney=" + playerMoney + '}';
     }
     
     
