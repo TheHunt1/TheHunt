@@ -12,11 +12,17 @@ import byui.cit260.theHunt.model.Location;
 import byui.cit260.theHunt.model.Map;
 import byui.cit260.theHunt.model.Player;
 import byui.cit260.theHunt.model.Scene;
+import exceptions.GameControlException;
 import exceptions.MapControlException;
 import hunt.Hunt;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static jdk.nashorn.tools.ShellFunctions.input;
 
 /**
  *
@@ -114,6 +120,30 @@ public class GameControl {
         locations[4][3].setScene(scenes[SceneType.grasslands.ordinal()]);
         locations[4][4].setScene(scenes[SceneType.petrifiedforest.ordinal()]);
          
+    }
+
+    public static void saveGame(Game currentGame, String filePath) throws GameControlException{
+        try(FileOutputStream fops = new FileOutputStream(filePath)) {
+            ObjectOutputStream output = new ObjectOutputStream(fops);
+            
+            output.writeObject(currentGame);
+        }
+        catch (Exception e) {
+            throw new GameControlException(e.getMessage());
+        }
+    }
+    
+    public static void getSavedGame(String filePath) throws GameControlException{
+        Game currentGame = null;
+        try(FileInputStream fips = new FileInputStream(filePath)) {
+            ObjectInputStream input = new ObjectInputStream(fips);
+            
+            currentGame = (Game) input.readObject();
+        }
+        catch (Exception e) {
+            throw new GameControlException(e.getMessage());
+        }
+        Hunt.setCurrentGame(currentGame);
     }
     
 }

@@ -46,7 +46,7 @@ public MoveView() {
                  }
             }
      }
-     System.out.println("\n*** Invalid selection *** Try Again later");
+     this.console.println("\n*** Invalid selection *** Try Again later");
      return false;
    }
 }

@@ -17,6 +17,12 @@ import byui.cit260.theHunt.model.Player;
 import byui.cit260.theHunt.model.PlayerStatus;
 import byui.cit260.theHunt.model.WeaponStore;
 import byui.cit260.theHunt.view.StartProgramView;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author Dragon
@@ -40,6 +46,34 @@ public class Hunt {
     }
 private static Game currentGame = null;
 private static Player player = null;
+
+private static PrintWriter outFile = null;
+private static PrintWriter logFile = null;
+
+    public static PrintWriter getLogFile() {
+        return logFile;
+    }
+
+    public static void setLogFile(PrintWriter logFile) {
+        Hunt.logFile = logFile;
+    }
+
+    public static PrintWriter getOutFile() {
+        return outFile;
+    }
+
+    public static void setOutFile(PrintWriter outFile) {
+        Hunt.outFile = outFile;
+    }
+
+    public static BufferedReader getInFile() {
+        return inFile;
+    }
+
+    public static void setInFile(BufferedReader inFile) {
+        Hunt.inFile = inFile;
+    }
+private static BufferedReader inFile = null;
     /**
      * @param args the command line arguments
      */
@@ -48,6 +82,11 @@ private static Player player = null;
        startProgramView.displayStartProgramView();
        
         try {
+            Hunt.inFile = new BufferedReader(new InputStreamReader (System.in));
+            Hunt.outFile = new PrintWriter(System.out, true);
+            
+            String filePath ="log.txt";
+            Hunt.logFile = new PrintWriter (filePath);
             startProgramView.displayStartProgramView();
             
         }
@@ -55,6 +94,24 @@ private static Player player = null;
             System.out.println(te.getMessage());
             te.printStackTrace();
             startProgramView.displayStartProgramView();
+        }
+        finally {
+           try {
+               if(Hunt.inFile != null) 
+                 Hunt.inFile.close(); 
+               
+               if(Hunt.outFile != null) 
+                  Hunt.outFile.close(); 
+               
+               if(Hunt.logFile != null) 
+                  Hunt.logFile.close(); 
+               
+               
+           } catch (IOException ex) {
+               System.out.println("Error Closing files");
+               return;
+           }
+            
         }
         
         

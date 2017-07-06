@@ -7,13 +7,18 @@ package byui.cit260.theHunt.view;
 
 import byui.cit260.theHunt.control.GameControl;
 import byui.cit260.theHunt.model.Player;
+import hunt.Hunt;
 import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 
 /**
  *
  * @author Dragon
  */
 public class StartProgramView {
+    protected final BufferedReader keyboard = Hunt.getInFile();
+    protected final PrintWriter console = Hunt.getOutFile();
     private String promptMessage;
     public StartProgramView () {
         this.promptMessage = "\nPlease enter your name";
@@ -58,22 +63,28 @@ public class StartProgramView {
     }
 
     private String getPlayersName() {
-        Scanner keyboard = new Scanner(System.in);
+        
         String value = "";
         boolean valid = false;
         
+        try {
         while (!valid) {
             System.out.println("\n" + this.promptMessage);
             
-            value = keyboard.nextLine();
+            value = this.keyboard.readLine();
             value = value.trim();
             
             if(value.length() < 1) {
-                System.out.println("\nInvalid value; value can't be blank");
+                ErrorView.display(this.getClass().getName(),"\nInvalid value; value can't be blank");
                 continue;
                 
             }
             break;
+        }
+        }
+        catch (Exception e){
+            ErrorView.display(this.getClass().getName(),"Error reading input: " + e.getMessage());
+            return null;
         }
         return value;
     }

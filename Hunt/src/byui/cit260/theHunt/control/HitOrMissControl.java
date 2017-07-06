@@ -25,11 +25,9 @@ public class HitOrMissControl {
 int hitOrMiss = chance + weather + jacket;
 
 if (hitOrMiss > 0 &  hitOrMiss < 70) {
-    System.out.println("Miss");
 	return 0;
 }
 if (hitOrMiss >71) {
-    System.out.println("Hit");
 	return 1;
 }
 if (hitOrMiss < 0){
