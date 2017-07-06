@@ -5,8 +5,8 @@
  */
 package byui.cit260.theHunt.view;
 
-import byui.cit260.theHunt.control.GameControl.InventoryItem;
 import byui.cit260.theHunt.model.Game;
+import byui.cit260.theHunt.model.Inventory;
 import byui.cit260.theHunt.model.Location;
 import byui.cit260.theHunt.model.Map;
 import hunt.Hunt;
@@ -23,9 +23,9 @@ public class InventoryView extends View{
     @Override
    public boolean doAction(String choice){
    choice = choice.toUpperCase();
-   char choice = choice.charAt(0);
+   char selection = choice.charAt(0);
    
-   switch (choice) {
+   switch (selection) {
        case 'V':
            this.displayMap();
            break;
@@ -46,7 +46,7 @@ public class InventoryView extends View{
        StringBuilder line;
        
        Game game = Hunt.getCurrentGame();
-        Game.InventoryItem[] inventory = game.getInventory();
+       Inventory[] inventory = game.getInventory();
        
        
        System.out.println("\n           LIST OF INVENTORY");
@@ -55,7 +55,7 @@ public class InventoryView extends View{
        line.insert(20, "IN STOCK");
        System.out.println(line.toString());
        
-       for (InventoryItem item: inventory) {
+       for (Inventory item: inventory) {
            line = new StringBuilder ("                                ");
            line.insert(0, item.getDescription());
            line.insert(20, item.getQuantityInStock());

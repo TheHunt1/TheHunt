@@ -14,17 +14,17 @@ import java.util.Objects;
  */
 public class Map implements Serializable{
     
-    private String locationDesciption;    
-    private String locationArea;
-    private String mapChoice;
-    private String animalChoice;
+//    private String locationDesciption;    
+//    private String locationArea;
+//    private String mapChoice;
+//    private String animalChoice;
     private int totalRows;
     private int totalColumns;
     private int currentRow = 0;
     private int currentColumn = 0;
-    private String currentScene;
-    Location [] [] locations;
-      private Location currentLocation;
+    private Scene currentScene;
+    private Location[][] locations;
+    private Location currentLocation;
 
     public Map( int totalRows, int totalColums) {
         if (totalRows < 1 || totalColums <1){
@@ -44,46 +44,12 @@ public class Map implements Serializable{
                 location.setRow(row);
                 location.setVisited(false);
                 
-                locations [row] [column] = location;
+                locations[row][column] = location;
             }
         }
     }
-
+ 
     
-    
-    
-
-    public String getLocationDesciption() {
-        return locationDesciption;
-    }
-
-    public void setLocationDesciption(String locationDesciption) {
-        this.locationDesciption = locationDesciption;
-    }
-
-    public String getLocationArea() {
-        return locationArea;
-    }
-
-    public void setLocationArea(String locationArea) {
-        this.locationArea = locationArea;
-    }
-
-    public String getMapChoice() {
-        return mapChoice;
-    }
-
-    public void setMapChoice(String mapChoice) {
-        this.mapChoice = mapChoice;
-    }
-
-    public String getAnimalChoice() {
-        return animalChoice;
-    }
-
-    public void setAnimalChoice(String animalChoice) {
-        this.animalChoice = animalChoice;
-    }
 
     public int getTotalRows() {
         return totalRows;
@@ -117,84 +83,29 @@ public class Map implements Serializable{
         this.currentColumn = currentColumn;
     }
 
-    public String getCurrentScene() {
+    public Scene getCurrentScene() {
         return currentScene;
     }
 
-    public void setCurrentScene(String currentScene) {
+    public void setCurrentScene(Scene currentScene) {
         this.currentScene = currentScene;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 71 * hash + Objects.hashCode(this.locationDesciption);
-        hash = 71 * hash + Objects.hashCode(this.locationArea);
-        hash = 71 * hash + Objects.hashCode(this.mapChoice);
-        hash = 71 * hash + Objects.hashCode(this.animalChoice);
-        hash = 71 * hash + this.totalRows;
-        hash = 71 * hash + this.totalColumns;
-        hash = 71 * hash + this.currentRow;
-        hash = 71 * hash + this.currentColumn;
-        hash = 71 * hash + Objects.hashCode(this.currentScene);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Map other = (Map) obj;
-        if (this.totalRows != other.totalRows) {
-            return false;
-        }
-        if (this.totalColumns != other.totalColumns) {
-            return false;
-        }
-        if (this.currentRow != other.currentRow) {
-            return false;
-        }
-        if (this.currentColumn != other.currentColumn) {
-            return false;
-        }
-        if (!Objects.equals(this.locationDesciption, other.locationDesciption)) {
-            return false;
-        }
-        if (!Objects.equals(this.locationArea, other.locationArea)) {
-            return false;
-        }
-        if (!Objects.equals(this.mapChoice, other.mapChoice)) {
-            return false;
-        }
-        if (!Objects.equals(this.animalChoice, other.animalChoice)) {
-            return false;
-        }
-        if (!Objects.equals(this.currentScene, other.currentScene)) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "Map{" + "locationDesciption=" + locationDesciption + ", locationArea=" + locationArea + ", mapChoice=" + mapChoice + ", animalChoice=" + animalChoice + ", totalRows=" + totalRows + ", totalColumns=" + totalColumns + ", currentRow=" + currentRow + ", currentColumn=" + currentColumn + ", currentScene=" + currentScene + '}';
-    }
 
     public Location[][] getLocations() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return locations;
     }
 
-    boolean getCurrentLocation() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void setLocations(Location[][] locations) {
+        this.locations = locations;
     }
-    
-    
-    
+
+    public Location getCurrentLocation() {
+        return currentLocation;
+    }
+
+    public void setCurrentLocation(Location currentLocation) {
+        this.currentLocation = currentLocation;
+    }
+
 }

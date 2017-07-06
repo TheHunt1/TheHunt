@@ -17,8 +17,27 @@ public class Inventory implements Serializable{
    private String gear;
    private int ammo;
    private String ammoStore;
+   private String description;
+   private int quantityInStock;
+   
 
     public Inventory() {
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public int getQuantityInStock() {
+        return quantityInStock;
+    }
+
+    public void setQuantityInStock(int quantityInStock) {
+        this.quantityInStock = quantityInStock;
     }
 
    

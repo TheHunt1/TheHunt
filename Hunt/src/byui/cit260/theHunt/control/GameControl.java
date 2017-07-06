@@ -5,8 +5,9 @@
  */
 package byui.cit260.theHunt.control;
 
-import byui.cit260.theHunt.control.MapControl.SceneType;
+import byui.cit260.theHunt.model.SceneType;
 import byui.cit260.theHunt.model.Game;
+import byui.cit260.theHunt.model.Inventory;
 import byui.cit260.theHunt.model.Location;
 import byui.cit260.theHunt.model.Map;
 import byui.cit260.theHunt.model.Player;
@@ -38,15 +39,15 @@ public class GameControl {
         Game game = new Game(); 
         Hunt.setCurrentGame(game);
         
-        Game.setPlayer(player);
+        game.setPlayer(player);
         
-        InventoryItem[] inventoryList = GameControl.createInventoryList ();
-        game.setInventoryList(inventoryList);
+        Inventory[] inventoryList = GameControl.createInventoryList ();
+        game.setInventory(inventoryList);
         
         Map map = MapControl.createMap();
         game.setMap(map);
         try {
-            MapControl.moveActorsToStartingLocation(map);
+            MapControl.movePlayerToStartingLocation(map);
         } catch (MapControlException ex) {
             Logger.getLogger(GameControl.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -57,25 +58,25 @@ public class GameControl {
         System.exit(0);
     }
 
-    public static InventoryItem [] createInventoryList (){
-        InventoryItem [] inventory = new InventoryItem [12];
+    public static Inventory[] createInventoryList (){
+        Inventory[] inventory = new Inventory[12];
         
-        InventoryItem ammo = new InventoryItem ();
+        Inventory ammo = new Inventory ();
         ammo.setDescription("Ammo");
         ammo.setQuantityInStock(5);
         inventory[0] = ammo;
         
-        InventoryItem  weapon= new InventoryItem ();
+        Inventory  weapon= new Inventory ();
         weapon.setDescription("Weapon");
         weapon.setQuantityInStock(0);
         inventory[1] = weapon;
         
-        InventoryItem food = new InventoryItem ();
+        Inventory food = new Inventory ();
         food.setDescription("Food");
         food.setQuantityInStock(0);
         inventory[2] = food;
         
-        InventoryItem jacket = new InventoryItem ();
+        Inventory jacket = new Inventory ();
         jacket.setDescription("Jacket");
         jacket.setQuantityInStock(0);
         inventory[3] = jacket;
@@ -86,58 +87,33 @@ public class GameControl {
     }
 
     public static void assignSceneToLocations(Map map, Scene[] scenes) {
-        Location [] [] locations = map.getLocations();
-        locations [0] [0].setScene(scenes[SceneType.bush.ordinal()]);
-        locations [0] [1].setScene(scenes[SceneType.start.ordinal()]);
-        locations [0] [2].setScene(scenes[SceneType.ammo.ordinal()]);
-        locations [0] [3].setScene(scenes[SceneType.bush.ordinal()]);
-        locations [0] [4].setScene(scenes[SceneType.bush.ordinal()]);
-        locations [0] [5].setScene(scenes[SceneType.food.ordinal()]);
-        locations [1] [0].setScene(scenes[SceneType.bush.ordinal()]);
-        locations [1] [1].setScene(scenes[SceneType.bush.ordinal()]);
-        locations [1] [2].setScene(scenes[SceneType.bush.ordinal()]);
-        locations [1] [3].setScene(scenes[SceneType.food.ordinal()]);
-        locations [1] [4].setScene(scenes[SceneType.bush.ordinal()]);
-        locations [1] [5].setScene(scenes[SceneType.bush.ordinal()]);
-        locations [2] [0].setScene(scenes[SceneType.animal.ordinal()]);
-        locations [2] [1].setScene(scenes[SceneType.bush.ordinal()]);
-        locations [2] [2].setScene(scenes[SceneType.bush.ordinal()]);
-        locations [2] [3].setScene(scenes[SceneType.predator.ordinal()]);
-        locations [2] [4].setScene(scenes[SceneType.bush.ordinal()]);
-        locations [2] [5].setScene(scenes[SceneType.bush.ordinal()]);
-        locations [3] [0].setScene(scenes[SceneType.bush.ordinal()]);
-        locations [3] [1].setScene(scenes[SceneType.bush.ordinal()]);
-        locations [3] [2].setScene(scenes[SceneType.predator.ordinal()]);
-        locations [3] [3].setScene(scenes[SceneType.bush.ordinal()]);
-        locations [3] [4].setScene(scenes[SceneType.bush.ordinal()]);
-        locations [3] [5].setScene(scenes[SceneType.bush.ordinal()]);
-        locations [4] [0].setScene(scenes[SceneType.bush.ordinal()]);
-        locations [4] [1].setScene(scenes[SceneType.bush.ordinal()]);
-        locations [4] [2].setScene(scenes[SceneType.predator.ordinal()]);
-        locations [4] [3].setScene(scenes[SceneType.animal.ordinal()]);
-        locations [4] [4].setScene(scenes[SceneType.bush.ordinal()]);
-        locations [4] [5].setScene(scenes[SceneType.bush.ordinal()]);
-        locations [5] [0].setScene(scenes[SceneType.bush.ordinal()]);
-        locations [5] [1].setScene(scenes[SceneType.ammo.ordinal()]);
-        locations [5] [2].setScene(scenes[SceneType.bush.ordinal()]);
-        locations [5] [3].setScene(scenes[SceneType.bush.ordinal()]);
-        locations [5] [4].setScene(scenes[SceneType.bush.ordinal()]);
-        locations [5] [5].setScene(scenes[SceneType.finish.ordinal()]);
-        
-    }
-
-    public static class InventoryItem {
-
-        public InventoryItem() {
-        }
-
-        private void setDescription(String ammo) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
-
-        private void setQuantityInStock(int i) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
+        Location[][] locations = map.getLocations();
+        locations[0][0].setScene(scenes[SceneType.crystallake.ordinal()]);
+        locations[0][1].setScene(scenes[SceneType.blackriver.ordinal()]);
+        locations[0][2].setScene(scenes[SceneType.wetlands.ordinal()]);
+        locations[0][3].setScene(scenes[SceneType.watershed.ordinal()]);
+        locations[0][4].setScene(scenes[SceneType.whitewaterbend.ordinal()]);
+        locations[1][0].setScene(scenes[SceneType.rapidfalls.ordinal()]);
+        locations[1][1].setScene(scenes[SceneType.morningwetland.ordinal()]);
+        locations[1][2].setScene(scenes[SceneType.thousandstreams.ordinal()]);
+        locations[1][3].setScene(scenes[SceneType.poopfalls.ordinal()]);
+        locations[1][4].setScene(scenes[SceneType.whiteridge.ordinal()]);
+        locations[2][0].setScene(scenes[SceneType.burntforest.ordinal()]);
+        locations[2][1].setScene(scenes[SceneType.blackwoods.ordinal()]);
+        locations[2][2].setScene(scenes[SceneType.yellowvalley.ordinal()]);
+        locations[2][3].setScene(scenes[SceneType.treeline.ordinal()]);
+        locations[2][4].setScene(scenes[SceneType.skyrim.ordinal()]);
+        locations[3][0].setScene(scenes[SceneType.triplepeaks.ordinal()]);
+        locations[3][1].setScene(scenes[SceneType.windygap.ordinal()]);
+        locations[3][2].setScene(scenes[SceneType.coppercanyon.ordinal()]);
+        locations[3][3].setScene(scenes[SceneType.cloudpeak.ordinal()]);
+        locations[3][4].setScene(scenes[SceneType.agnewmeadow.ordinal()]);
+        locations[4][0].setScene(scenes[SceneType.madronamarsh.ordinal()]);
+        locations[4][1].setScene(scenes[SceneType.chantryflats.ordinal()]);
+        locations[4][2].setScene(scenes[SceneType.highdesert.ordinal()]);
+        locations[4][3].setScene(scenes[SceneType.grasslands.ordinal()]);
+        locations[4][4].setScene(scenes[SceneType.petrifiedforest.ordinal()]);
+         
     }
     
 }
