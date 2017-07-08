@@ -49,6 +49,7 @@ private static Player player = null;
 
 private static PrintWriter outFile = null;
 private static PrintWriter logFile = null;
+private static BufferedReader inFile = null;
 
     public static PrintWriter getLogFile() {
         return logFile;
@@ -73,7 +74,7 @@ private static PrintWriter logFile = null;
     public static void setInFile(BufferedReader inFile) {
         Hunt.inFile = inFile;
     }
-private static BufferedReader inFile = null;
+
     /**
      * @param args the command line arguments
      */

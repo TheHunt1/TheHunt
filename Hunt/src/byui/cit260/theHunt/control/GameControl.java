@@ -23,12 +23,13 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import static jdk.nashorn.tools.ShellFunctions.input;
+import java.io.Serializable;
 
 /**
  *
  * @author MW
  */
-public class GameControl {
+public class GameControl implements Serializable {
 
     public static Player createPlayer(String name) {
         if (name== null){
@@ -122,7 +123,7 @@ public class GameControl {
          
     }
 
-    public static void saveGame(Game currentGame, String filePath) throws GameControlException{
+    public static void saveGame (Game currentGame, String filePath) throws GameControlException{
         try(FileOutputStream fops = new FileOutputStream(filePath)) {
             ObjectOutputStream output = new ObjectOutputStream(fops);
             
