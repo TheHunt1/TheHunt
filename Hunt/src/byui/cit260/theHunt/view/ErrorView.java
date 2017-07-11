@@ -13,15 +13,16 @@ import java.io.PrintWriter;
  * @author Dragon
  */
 public class ErrorView {
-   private static final PrintWriter errorFile = Hunt.getOutFile();
-   private static final PrintWriter logFile = Hunt.getLogFile();
-   
-   public static void display(String className, String errorMessage) {
-       errorFile.println(
-               "-----------------------------------"
-       + "\n- ERROR - " + errorMessage
-       + "\n----------------------------------");
-       
-       logFile.println(className + " - " + errorMessage);
-   }
+
+    private static final PrintWriter errorFile = Hunt.getOutFile();
+    private static final PrintWriter logFile = Hunt.getLogFile();
+
+    public static void display(String className, String errorMessage) {
+        errorFile.println(
+                "-----------------------------------"
+                + "\n- ERROR - " + errorMessage
+                + "\n----------------------------------");
+
+        logFile.println(className + " - " + errorMessage);
+    }
 }

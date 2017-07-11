@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package hunt;
+
 import byui.cit260.theHunt.model.Actor;
 import byui.cit260.theHunt.model.AmmoStore;
 import byui.cit260.theHunt.model.Animal;
@@ -23,6 +24,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 /**
  *
  * @author Dragon
@@ -44,12 +46,12 @@ public class Hunt {
     public static void setPlayer(Player player) {
         Hunt.player = player;
     }
-private static Game currentGame = null;
-private static Player player = null;
+    private static Game currentGame = null;
+    private static Player player = null;
 
-private static PrintWriter outFile = null;
-private static PrintWriter logFile = null;
-private static BufferedReader inFile = null;
+    private static PrintWriter outFile = null;
+    private static PrintWriter logFile = null;
+    private static BufferedReader inFile = null;
 
     public static PrintWriter getLogFile() {
         return logFile;
@@ -79,43 +81,42 @@ private static BufferedReader inFile = null;
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       StartProgramView startProgramView = new StartProgramView ();
-       startProgramView.displayStartProgramView();
-       
+        StartProgramView startProgramView = new StartProgramView();
+        startProgramView.displayStartProgramView();
+
         try {
-            Hunt.inFile = new BufferedReader(new InputStreamReader (System.in));
+            Hunt.inFile = new BufferedReader(new InputStreamReader(System.in));
             Hunt.outFile = new PrintWriter(System.out, true);
-            
-            String filePath ="log.txt";
-            Hunt.logFile = new PrintWriter (filePath);
+
+            String filePath = "log.txt";
+            Hunt.logFile = new PrintWriter(filePath);
             startProgramView.displayStartProgramView();
-            
-        }
-        catch (Throwable te) {
+
+        } catch (Throwable te) {
             System.out.println(te.getMessage());
             te.printStackTrace();
             startProgramView.displayStartProgramView();
+        } finally {
+            try {
+                if (Hunt.inFile != null) {
+                    Hunt.inFile.close();
+                }
+
+                if (Hunt.outFile != null) {
+                    Hunt.outFile.close();
+                }
+
+                if (Hunt.logFile != null) {
+                    Hunt.logFile.close();
+                }
+
+            } catch (IOException ex) {
+                System.out.println("Error Closing files");
+                return;
+            }
+
         }
-        finally {
-           try {
-               if(Hunt.inFile != null) 
-                 Hunt.inFile.close(); 
-               
-               if(Hunt.outFile != null) 
-                  Hunt.outFile.close(); 
-               
-               if(Hunt.logFile != null) 
-                  Hunt.logFile.close(); 
-               
-               
-           } catch (IOException ex) {
-               System.out.println("Error Closing files");
-               return;
-           }
-            
-        }
-        
-        
+
     }
-    
+
 }
