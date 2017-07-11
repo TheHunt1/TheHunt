@@ -93,23 +93,27 @@ public class AnimalMenuView extends View {
    
     }
     private static void buildList(String filePath)throws IOException {
+        String [] aList = new String[] {"Deer is worth 8 pt, \nPheasant is worth 5 pt, "
+                + "\nAlligator is worth 15 pt, \nRabbit is worth 7 pt"};
+        
+        
+        
         FileReader in = null;
       FileWriter out = null;
 
       try {
-         in = new FileReader("list.txt");
-         out = new FileWriter(filePath);
-         
-         int c;
-         while ((c = in.read()) != -1) {
-            out.write(c);
-         }
+         for(String object: aList){
+            //System.out.println(object);
+            out = new FileWriter(filePath);
+            out.write(object);
+        }
+          //in = new FileReader("list.txt");
       }finally {
          if (in != null) {
             in.close();
          }
-         if (out != null) {
-            out.close();
+        if (out != null) {
+          out.close();
          }
       }
 
