@@ -24,6 +24,7 @@ public class MainMenuView extends View {
                 + "\nG - Get and start saved game"
                 + "\nH - Get help on how to play"
                 + "\nS - Save game"
+                + "\nA - See how much animals are worth"
                 + "\nQ - Quit"
                 + "\n-------------------------------");
     }
@@ -45,6 +46,9 @@ public class MainMenuView extends View {
                 break;
             case "S":
                 this.saveGame();
+                break;
+            case "A":
+                this.displayAnimalMenuView ();
                 break;
             default:
                 this.console.println("\n*** Invalid selection *** Try again");
@@ -93,6 +97,11 @@ public class MainMenuView extends View {
 
         HelpMenuView helpMenuView = new HelpMenuView();
         helpMenuView.display();
+    }
+
+    private void displayAnimalMenuView() {
+        AnimalMenuView animalMenuView = new AnimalMenuView();
+        animalMenuView.display();
     }
     
     

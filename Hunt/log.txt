@@ -1,0 +1,14 @@
+q - 
+
+-------------------------------
+   Animal Menu                   
+-------------------------------
+ Choose what animal you want to
+ hunt.
+A - Alligator
+D - Deer
+R - Rabbit
+P - Pheasant
+L - List animal points
+Q - Quit
+-------------------------------

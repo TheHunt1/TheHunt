@@ -81,8 +81,7 @@ public class Hunt {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        StartProgramView startProgramView = new StartProgramView();
-        startProgramView.displayStartProgramView();
+      
 
         try {
             Hunt.inFile = new BufferedReader(new InputStreamReader(System.in));
@@ -90,12 +89,13 @@ public class Hunt {
 
             String filePath = "log.txt";
             Hunt.logFile = new PrintWriter(filePath);
+             StartProgramView startProgramView = new StartProgramView();
             startProgramView.displayStartProgramView();
 
         } catch (Throwable te) {
             System.out.println(te.getMessage());
             te.printStackTrace();
-            startProgramView.displayStartProgramView();
+            
         } finally {
             try {
                 if (Hunt.inFile != null) {
