@@ -14,9 +14,9 @@ import java.util.Scanner;
  * @author Dragon
  */
 public class MainMenuView extends View {
-    
-    public MainMenuView (){
-        super ("\n"
+
+    public MainMenuView() {
+        super("\n"
                 + "\n-------------------------------"
                 + "\n   Main Menu                   "
                 + "\n-------------------------------"
@@ -29,11 +29,11 @@ public class MainMenuView extends View {
                 + "\n-------------------------------");
     }
 
-@Override
+    @Override
     public boolean doAction(String value) {
-       
+
         value = value.toUpperCase();
-        
+
         switch (value) {
             case "N":
                 this.startNewGame();
@@ -48,7 +48,7 @@ public class MainMenuView extends View {
                 this.saveGame();
                 break;
             case "A":
-                this.displayAnimalMenuView ();
+                this.displayAnimalMenuView();
                 break;
             default:
                 this.console.println("\n*** Invalid selection *** Try again");
@@ -59,38 +59,36 @@ public class MainMenuView extends View {
     }
 
     private void startNewGame() {
-       GameControl.createNewGame(Hunt.getPlayer());
-       
-       GameMenuView gameMenu = new GameMenuView();
-       gameMenu.display();
-    }
-    private void saveGame() {
-     this.console.println("\n\nEnter the file path for file where the game is to be saved.");
-     
-     String filePath = this.getInput();
-     
-     try {
-         GameControl.saveGame(Hunt.getCurrentGame(), filePath);
-     }
-     catch (Exception ex) {
-         ErrorView.display("MainMenuView", ex.getMessage());
-     }
+        GameControl.createNewGame(Hunt.getPlayer());
+
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
 
+    private void saveGame() {
+        this.console.println("\n\nEnter the file path for file where the game is to be saved.");
+
+        String filePath = this.getInput();
+
+        try {
+            GameControl.saveGame(Hunt.getCurrentGame(), filePath);
+        } catch (Exception ex) {
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
+    }
 
     private void startExistingGame() {
         this.console.println("\n\nEnter the file path for file where the game is to be saved.");
-     
-     String filePath = this.getInput();
-     
-     try {
-         GameControl.getSavedGame(filePath);
-     }
-     catch (Exception ex) {
-         ErrorView.display("MainMenuView", ex.getMessage());
-     }
-     GameMenuView gameMenu = new GameMenuView();
-     gameMenu.display();
+
+        String filePath = this.getInput();
+
+        try {
+            GameControl.getSavedGame(filePath);
+        } catch (Exception ex) {
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
 
     private void displayHelpMenu() {
@@ -103,6 +101,5 @@ public class MainMenuView extends View {
         AnimalMenuView animalMenuView = new AnimalMenuView();
         animalMenuView.display();
     }
-    
-    
+
 }

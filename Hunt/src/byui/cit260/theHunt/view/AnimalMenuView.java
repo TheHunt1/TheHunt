@@ -20,11 +20,8 @@ import java.util.Scanner;
  */
 public class AnimalMenuView extends View {
 
-    
-
-    
-    public AnimalMenuView (){
-        super ("\n"
+    public AnimalMenuView() {
+        super("\n"
                 + "\n-------------------------------"
                 + "\n   Animal Menu                   "
                 + "\n-------------------------------"
@@ -38,35 +35,34 @@ public class AnimalMenuView extends View {
                 + "\nQ - Quit"
                 + "\n-------------------------------");
     }
-    
-    
-@Override
-   public boolean doAction(String choice) {
+
+    @Override
+    public boolean doAction(String choice) {
         choice = choice.toUpperCase();
-        
+
         switch (choice) {
             case "A":
-                System.out.println("\n You chose to hunt an alligator");
+                this.console.println("\n You chose to hunt an alligator");
                 this.MapView();
                 break;
             case "D":
-            System.out.println("\n You chose to hunt a deer");
-            this.MapView();
-            break;
-            case "R":
-                System.out.println("\n You chose to hunt a rabbit");
+                this.console.println("\n You chose to hunt a deer");
                 this.MapView();
                 break;
-                
+            case "R":
+                this.console.println("\n You chose to hunt a rabbit");
+                this.MapView();
+                break;
+
             case "P":
-                System.out.println("\n You chose to hunt a pheasant");
+                this.console.println("\n You chose to hunt a pheasant");
                 this.MapView();
                 break;
             case "L":
                 this.AnimalList();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                this.console.println("\n*** Invalid selection *** Try again");
                 break;
         }
 
@@ -74,51 +70,44 @@ public class AnimalMenuView extends View {
     }
 
     private void MapView() {
-        System.out.println("\n MapView function called"); //This will become another view where player chooses the size of the map
+        this.console.println("\n MapView function called"); //This will become another view where player chooses the size of the map
     }
 
-    private void AnimalList()  {
-        
+    private void AnimalList() {
+
         this.console.println("Enter where you want to save the file");
-        String filePath=this.getInput();
-        
-        try{
+        String filePath = this.getInput();
+
+        try {
             AnimalMenuView.buildList(filePath);
-        }
-        catch (Exception ex){
+        } catch (Exception ex) {
             ErrorView.display(filePath, displayMessage);
         }
-        
-        
-   
-    }
-    private static void buildList(String filePath)throws IOException {
-        String [] aList = new String[] {"Deer is worth 8 pt, \nPheasant is worth 5 pt, "
-                + "\nAlligator is worth 15 pt, \nRabbit is worth 7 pt"};
-        
-        
-        
-        FileReader in = null;
-      FileWriter out = null;
 
-      try {
-         for(String object: aList){
-            //System.out.println(object);
-            out = new FileWriter(filePath);
-            out.write(object);
+    }
+
+    private static void buildList(String filePath) throws IOException {
+        String[] aList = new String[]{"Deer is worth 8 pt, \nPheasant is worth 5 pt, "
+            + "\nAlligator is worth 15 pt, \nRabbit is worth 7 pt"};
+
+        FileReader in = null;
+        FileWriter out = null;
+
+        try {
+            for (String object : aList) {
+                //System.out.println(object);
+                out = new FileWriter(filePath);
+                out.write(object);
+            }
+            //in = new FileReader("list.txt");
+        } finally {
+            if (in != null) {
+                in.close();
+            }
+            if (out != null) {
+                out.close();
+            }
         }
-          //in = new FileReader("list.txt");
-      }finally {
-         if (in != null) {
-            in.close();
-         }
-        if (out != null) {
-          out.close();
-         }
-      }
 
     }
 }
-    
-  
-

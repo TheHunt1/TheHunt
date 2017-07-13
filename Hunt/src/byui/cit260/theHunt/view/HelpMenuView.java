@@ -12,11 +12,10 @@ import java.util.Scanner;
  *
  * @author MW
  */
-public class HelpMenuView extends View{
+public class HelpMenuView extends View {
 
-    
-    public HelpMenuView (){
-        super ("\n"
+    public HelpMenuView() {
+        super("\n"
                 + "\n-------------------------------"
                 + "\n   Help Menu                   "
                 + "\n-------------------------------"
@@ -27,31 +26,30 @@ public class HelpMenuView extends View{
                 + "\nQ - Quit"
                 + "\n-------------------------------");
     }
-    
-    
-@Override
+
+    @Override
     public boolean doAction(String value) {
         value = value.toUpperCase();
-        
+
         switch (value) {
             case "M":
-                System.out.println("\n You input two numbers, "
-                + "\n the X and Y to move to that coordinates");
+                this.console.println("\n You input two numbers, "
+                        + "\n the X and Y to move to that coordinates");
                 break;
             case "B":
-            System.out.println("\n You get money from your kills "
-            + "\n to spend. You select what you want and then how "
-            + "\n much you want");
-            break;
+                this.console.println("\n You get money from your kills "
+                        + "\n to spend. You select what you want and then how "
+                        + "\n much you want");
+                break;
             case "W":
-                System.out.println("\n The weather affects your accuracy. "
-                + "\n You can improve your accuracy by using a jacket.");
+                this.console.println("\n The weather affects your accuracy. "
+                        + "\n You can improve your accuracy by using a jacket.");
                 break;
             case "I":
-                System.out.println("\n You push 'I' on the keyboard during "
-                + "\n the animal encounter and select the item you want."
-                + "\n You can open the inventory as you are walking around"
-                + "\n by pushing 'I' to enter the invenoty screen.");
+                this.console.println("\n You push 'I' on the keyboard during "
+                        + "\n the animal encounter and select the item you want."
+                        + "\n You can open the inventory as you are walking around"
+                        + "\n by pushing 'I' to enter the invenoty screen.");
                 break;
             default:
                 this.console.println("\n*** Invalid selection *** Try again");
@@ -59,5 +57,5 @@ public class HelpMenuView extends View{
         }
 
         return false;
-    } 
+    }
 }

@@ -10,7 +10,10 @@ package byui.cit260.theHunt.view;
  * @author Dragon
  */
 public interface ViewInterface {
+
     public void display();
-    public String getInput ();
+
+    public String getInput();
+
     public boolean doAction(String value);
 }

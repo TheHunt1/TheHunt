@@ -61,8 +61,7 @@ public class GameControl implements Serializable {
     }
      
     public static void quitGame(){
-        System.out.println("We hope to see you soon!");
-        System.exit(0);
+        
     }
 
     public static Inventory[] createInventoryList (){

@@ -11,10 +11,10 @@ import java.util.Scanner;
  *
  * @author Daniel Melo
  */
-public class WeaponMenuView extends View{
-    
-    public WeaponMenuView (){
-        super ("\n"
+public class WeaponMenuView extends View {
+
+    public WeaponMenuView() {
+        super("\n"
                 + "\n-------------------------------"
                 + "\n   Weapon Menu                   "
                 + "\n-------------------------------"
@@ -25,27 +25,26 @@ public class WeaponMenuView extends View{
                 + "\nQ - Quit"
                 + "\n-------------------------------");
     }
-    
-   
-@Override
+
+    @Override
     public boolean doAction(String choice) {
         choice = choice.toUpperCase();
-        
+
         switch (choice) {
             case "S":
-                System.out.println("\n You are hunting with a Sniper");
-                this.GameMenuView ();
+                this.console.println("\n You are hunting with a Sniper");
+                this.GameMenuView();
                 break;
             case "B":
-                System.out.println("\n You are hunting with a bow and a arrow");
-            this.GameMenuView ();
-            break;
+                this.console.println("\n You are hunting with a bow and a arrow");
+                this.GameMenuView();
+                break;
             case "R":
-                System.out.println("\n You are hunting with a Rifle");
-                this.GameMenuView ();
+                this.console.println("\n You are hunting with a Rifle");
+                this.GameMenuView();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                this.console.println("\n*** Invalid selection *** Try again");
                 break;
         }
 

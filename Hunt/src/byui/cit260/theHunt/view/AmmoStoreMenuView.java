@@ -30,16 +30,16 @@ public class AmmoStoreMenuView extends View {
         
         switch (choice) {
             case "W":
-                System.out.println("\n*** Display list of available weapons"
+                this.console.println("\n*** Display list of available weapons"
                 + "\nincluding the price.");
                 break;
             case "P":
-                System.out.println("\nUse the money you earned from your kills "
+                this.console.println("\nUse the money you earned from your kills "
                 + "\nto purchase a ammunition. Here you will select and purchase "
                 + "\nammunition");
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                this.console.println("\n*** Invalid selection *** Try again");
                 break;
         }
         return false;

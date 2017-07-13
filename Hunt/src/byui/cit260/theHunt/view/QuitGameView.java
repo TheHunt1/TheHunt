@@ -12,27 +12,27 @@ import java.util.Scanner;
  *
  * @author daniel.freitas
  */
-public class QuitGameView extends View{
-    
-    public QuitGameView(){
-       super( "-------------------------------\n"
-                  + "         ***Quit Game***       \n"
-                  + "-------------------------------\n"
-                  + "Are you sure you want to quit the game?\nY - Yes\nN - No\n"
-                  + "-------------------------------");
+public class QuitGameView extends View {
+
+    public QuitGameView() {
+        super("-------------------------------\n"
+                + "         ***Quit Game***       \n"
+                + "-------------------------------\n"
+                + "Are you sure you want to quit the game?\nY - Yes\nN - No\n"
+                + "-------------------------------");
     }
-   
+
     @Override
     public boolean doAction(String choice) {
-       
+
         choice = choice.toUpperCase();
-        
+
         switch (choice) {
             case "Y":
                 GameControl.quitGame();
             case "N":
-            new MainMenuView().display();
-            break;
+                new MainMenuView().display();
+                break;
             default:
                 this.console.println("\n*** Invalid selection *** Try again");
                 break;
