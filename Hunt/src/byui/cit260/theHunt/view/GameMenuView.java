@@ -63,7 +63,7 @@ public class GameMenuView extends View {
     }
 
     private void SelectLocation() {
-        this.console.println("SelectLocation called");
+        //this.console.println("SelectLocation called");
         MoveView moveView = new MoveView();
         moveView.display();
 
