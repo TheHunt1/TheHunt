@@ -6,6 +6,7 @@
 package byui.cit260.theHunt.control;
 
 import byui.cit260.theHunt.model.Actor;
+import byui.cit260.theHunt.model.Animal;
 import byui.cit260.theHunt.model.Map;
 import byui.cit260.theHunt.model.Scene;
 import byui.cit260.theHunt.model.SceneType;
@@ -37,6 +38,7 @@ public class MapControl {
         newScene.setName("Crystal Lake");
         newScene.setDescription("Shores of the crystal clear lake.");
         newScene.setMapSymbol("CL");
+        newScene.setAnimal(Animal.Predator);
         scenes[SceneType.crystallake.ordinal()] = newScene;
 
         newScene = new Scene();
@@ -60,6 +62,7 @@ public class MapControl {
         newScene = new Scene();
         newScene.setName("White Water Bend");
         newScene.setDescription("Rapids at a river bend");
+        newScene.setAnimal(Animal.Predator);
         newScene.setMapSymbol("WW");
         scenes[SceneType.whitewaterbend.ordinal()] = newScene;
 
@@ -72,6 +75,7 @@ public class MapControl {
         newScene = new Scene();
         newScene.setName("Morning Wetland");
         newScene.setDescription("Heavy mist covers this wetland in the morning");
+        newScene.setAnimal(Animal.Alligator);
         newScene.setMapSymbol("MW");
         scenes[SceneType.morningwetland.ordinal()] = newScene;
 
@@ -84,12 +88,14 @@ public class MapControl {
         newScene = new Scene();
         newScene.setName("Poop Falls");
         newScene.setDescription("Animals tend to poop near these falls");
+        newScene.setAnimal(Animal.Rabbit);
         newScene.setMapSymbol("PF");
         scenes[SceneType.poopfalls.ordinal()] = newScene;
 
         newScene = new Scene();
         newScene.setName("White Ridge");
         newScene.setDescription("This ridge glows white a first sunlight");
+        newScene.setAnimal(Animal.Predator);
         newScene.setMapSymbol("WR");
         scenes[SceneType.whiteridge.ordinal()] = newScene;
 

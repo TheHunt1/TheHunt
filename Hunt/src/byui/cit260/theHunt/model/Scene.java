@@ -116,6 +116,10 @@ public class Scene {
     public String toString() {
         return "Scene{" + "name=" + name + ", mapSymbol=" + mapSymbol + ", description=" + description + '}';
     }
+
+    public void setAnimal(Actor actor) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
    
    
 }
